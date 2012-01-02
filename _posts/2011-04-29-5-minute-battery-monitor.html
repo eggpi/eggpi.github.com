@@ -1,0 +1,26 @@
+---
+layout: post
+title: 5-minute battery monitor
+tags: [awk, bash, linux, hack]
+---
+
+<p>
+I was left with no AC adapter for my notebook for a few hours on Tuesday.
+</p>
+
+<p>
+Having no battery monitor installed and being unable to install one, I was clueless about how much battery life I still had.
+So I did the best I could at the time: <del>shut down the notebook</del> hacked together a very simple battery monitor by parsing the contents of <code>/proc/acpi/battery/BAT0/state</code> and <code>/proc/acpi/battery/BAT0/info</code>.
+</p>
+
+<p>
+So here it is, too pointless for Github, and too useful for oblivion:
+</p>
+
+{% highlight bash %}
+{% include snippets/battery.sh %}
+{% endhighlight %}
+
+<p>
+A fun time-waster would be to try to convert it into a pure awk script, but that's going to have to wait.
+</p>

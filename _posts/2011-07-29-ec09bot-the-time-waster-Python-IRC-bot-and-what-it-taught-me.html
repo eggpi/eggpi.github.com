@@ -1,0 +1,57 @@
+---
+layout: post
+title: ec09bot, the time-waster Python IRC bot (and what it taught me)
+tags: [irc bot, python, twitter]
+---
+
+<p>
+One of the things I like the most about vacation is having the time and disposition to code weird/silly/funny ideas, which I would never bother with if it weren't for the fact that I've been having 16 free hours every day.
+</p>
+
+<p>
+It is with that spirit that, once I learned that a few friends of mine (the geekiest, of course) had created an IRC channel, I came up with the idea of coding a bot.
+</p>
+
+<p>
+Not a useful bot. Not even a smart bot. Just a funny bot.
+</p>
+
+<p>
+To me, creating an IRC bot sounds like one of these things every hacker must absolutely do once, so the task was somewhat charmful. And as with almost every other pet project/prototype of mine, I decided to use Python for extra coolness.
+</p>
+
+<p>
+After a little research, I came across <a href="http://python-irclib.sourceforge.net/" title="python-irclib">python-irclib</a>, which provides a framework for developing IRC bots. Yay, just what I needed, specially since I had spent most of the afternoon of the previous day just to get to know the IRC protocol and hand-code a vegetative-state bot that was pretty much only capable of keeping itself alive by replying to PINGs from the server. Lesson learned for code reuse.
+</p>
+
+<p>
+The first command to be implemented was <em>!batima</em>, which makes the bot reply with a quote from <em>Feira da Fruta</em>, a classic trashy humor redub of an episode of the Batman series of the 1960s.
+</p>
+
+<p>
+The implementation sounded pretty straightforward: given a list of such quotes, pick one at random and send it to the channel. The problem lied exactly in finding the list of quotes, which neither I nor any of my friends wanted to maintain.
+</p>
+
+<p>
+Luckily over the years that redub has flocked a cult of fans, and there's even a <a href="http://twitter.com/#!/falasdobatima" title="Falas do Bátima">Twitter account</a> dedicated to posting almost daily quotes from the video, all-caps for extra trashiness I presume. With some help from <a href="http://code.google.com/p/python-twitter/" title="python-twitter">python-twitter</a>, the rest was quite easy.
+</p>
+
+<p>
+<del>And along came <em>!chuck</em>, which yields a Chuck Norris Fact taken from another twitter account.</del> Update: The account in question seems to have been disabled. I'll probably re-implement the command as a fortune command.
+</p>
+
+<p>
+Then came the fortune-based commands, suggested by <a href="http://twitter.com/ivansichmann" title="Ivan">Ivan</a>. What better repository of funny/interesting/nonsensic quotes than the one used by the fortune Unix command? By implementing the generic functionality of grabbing a fortune cookie and sending it to the channel, we soon had Calvin &amp; Hobbes, Futurama and even <a href="http://en.wikipedia.org/wiki/BOFH" title="Bastard Operator from Hell on Wikipedia">BOFH</a> quotes at our disposal.
+</p>
+
+<p>
+And then there's the cool hack used for <em>!wikipedia</em>, which accesses <a href="http://dgl.cx/wikipedia-dns" title="Wikipedia Over DNS">Wikipedia Over DNS</a> using <a href="http://www.dnspython.org/" title="dnspython">dnspython</a> to grab article summaries from our favorite encyclopedia.
+</p>
+
+<p>
+I tried to keep the general structure of the code very modular with regard to adding/removing commands. Basically, each command is implemented as a separate module, and registered to a dispatcher class which resides in the main file, <em>ec09bot.py</em>. The command registration code is somewhat facilitated by not having the main file import all command modules; instead, they are grouped in a single Python package. This design was somewhat inspired by the http package on newer Python versions.
+</p>
+
+<p>
+All in all, between new Python modules and a few design techniques, I have learned quite a bit in doing this. It has been quite fun as well. The <a href="http://github.com/guilherme-pg/ec09bot" title="ec09bot">code of the bot</a> is on Github under the MIT license, anyone is welcome to try it.
+</p>

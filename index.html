@@ -1,0 +1,16 @@
+---
+---
+
+{% for post in site.posts %}
+    {% if forloop.first %}
+        {% assign last = post %}
+    {% endif %}
+{% endfor %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="refresh" content="0;url={{ last.url }}" />
+    </head>
+</html>

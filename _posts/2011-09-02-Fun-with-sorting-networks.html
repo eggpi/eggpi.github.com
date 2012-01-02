@@ -1,0 +1,66 @@
+---
+layout: post
+title: Fun with sorting networks
+tags: [algorithms, optimization, quicksort, sorting, sorting networks]
+---
+
+<p>
+A pair of interesting threads about sorting algorithms recently surfaced on Stack Overflow, bringing to discussion an exciting concept (which was entirely unknown by me): sorting networks.
+</p>
+
+<p>
+The first thread poses a straightforward question: <a title="Fastest sort of fixed length 6 int array" href="http://stackoverflow.com/questions/2786899/fastest-sort-of-fixed-length-6-int-array">what is the fastest way to sort 6 integers</a>? The question calls for optimized code to sort an array of integers whose size is fixed and known in advance to be 6.
+</p>
+
+<p>
+Experience shows that we can often sort elements a lot faster if we have some extra information about them, such as their <a title="Bucket sort" href="http://en.wikipedia.org/wiki/Bucket_sort">distribution</a> or <a title="Counting sort" href="http://en.wikipedia.org/wiki/Counting_sort">range of values</a>. So intuitively, one might expect better (albeit maybe not asymptotically better) performance from a sorting algorithm tailored for fixed-size arrays when compared to a generic version, fit for any input size.
+</p>
+
+<p>
+And indeed some very interesting techniques were elicited in the replies to that thread. However, one of them struck me for its simplicity and sheer speed: using a sorting network. This turned out to be faster than the generic solutions (such as insertion sort) that were posted as replies, according to the original poster's tests.
+</p>
+
+<p>
+A brief explanation on that solution: <a title="Sorting networks" href="http://en.wikipedia.org/wiki/Sorting_networks">sorting networks</a> are abstract representations of the comparisons and swaps used to sort a fixed number of integers. They are often schematized as circuits in which input wires carry the values through pairwise compare-and-swap gates.
+</p>
+
+<table class="img-wrap standout">
+    <tr><td><a href="http://en.wikipedia.org/wiki/Sorting_network"><img title="Simple sorting network" src="http://upload.wikimedia.org/wikipedia/en/e/e9/SimpleSortingNetwork2.svg" alt="A simple sorting network from Wikipedia" width="400" height="250" /></a></td></tr>
+    <tr><td class="img-caption">-- A simple sorting network for four elements</td><tr>
+</table>
+
+<p>
+Sorting networks leverage the fact that, given a fixed number of integers, the comparisons needed to sort them are also fixed. That is, the same circuit for n integers can sort all inputs of that size just by comparing and swapping elements in a fixed order.
+</p>
+
+<p>
+I must not have been the only one puzzled by these clever constructs, since a second thread on Stack Overflow soon wondered, <a title="How does a sorting network beat generic sorting algorithms" href="http://stackoverflow.com/questions/3901079/how-does-a-sorting-network-beat-generic-sorting-algorithms">why are sorting networks so fast</a>? The answer appears to be a combination of two factors: one, sorting networks tend to make less comparisons than generic sorting algorithms, and two, the comparisons made by sorting networks are more easily parallelizable at CPU level.
+</p>
+
+<p>
+So, in order to gain perspective on the power of that new sorting technique, I decided to run a few practical tests of my own.
+</p>
+
+<p>
+The methodology is simple. I implemented the <a href="http://en.wikipedia.org/wiki/Quicksort">quicksort</a> algorithm in three forms. The first is a plain and simple version, which can be found in most textbooks. The second uses the common optimization of resorting to insertion sort for small arrays, of sizes up to eight. And the third used sorting networks for small arrays, again for sizes eight and smaller.
+</p>
+
+<p>
+I then ran tests for input arrays of ascending (that is, already sorted), descending (sorted in reverse), all-zeroes and random integers, of sizes doubling from 2^16 (65536) to 2^22 (4194304), and compared the average user CPU times of five runs as measured with <a title="time" href="http://www.gnu.org/directory/time.html">time</a>.
+</p>
+
+<p>
+The codes were compiled with clang 2.9, using -O1 and -O2, and ran on a 64-bit Linux system, with a Core I3 380M processor.
+</p>
+
+<p>
+The code I used for testing is available in my Github page, in the <a title="Sorting networks test" href="http://github.com/guilherme-pg/sorting-networks-test">sorting-networks-test</a> repository. Anyone is welcome to review and try it. I also included all raw test results in that repository.
+</p>
+
+<p>
+For a short summary of my results, I did not notice much difference between the insertion sort and the sorting networks versions. In fact, the former slightly outperformed the latter in almost all tests. On the bright side, both were consistently (and considerably) faster than the textbook algorithm.
+</p>
+
+<p>
+It may be the case that the speed-up provided by sorting networks is highly compiler/CPU dependent, so I'd like to see more test results on the matter before drawing a definitive conclusion. But the fact that this new technique was a match for the old and well-known quicksort + insertion sort duo in terms of performance makes it a nice addition to my toolbox anyway.
+</p>

@@ -1,0 +1,45 @@
+---
+layout: post
+title: PyExt2lib
+tags: [cython, python, libext2, bindings]
+---
+
+<p>
+I pushed a new project to Github about a week ago: <a href="http://github.com/guilherme-pg/pyext2lib" title="pyext2lib">PyExt2lib</a>, Python bindings around the ext2fslib that comes with e2fsprogs.
+</p>
+
+<p>
+The motivation for this project and the story behind it are quite interesting, so I though I would share them.
+</p>
+
+<p>
+It all started with an Operating Systems class assignment in which the students (divided into pairs) were supposed to develop a tool to extract some information from filesystems, such as sizes of segments of contiguous free blocks and sizes of blocks allocated per inode, and display some of that information as histograms.
+</p>
+
+<p>
+No one in the class had ever come close to doing anything related, so we all started looking into how to implement that. Some attempted to use the Virtual File System layer in the kernel to no avail, while others looked up how other tools, such as dumpe2fs, did it, and came up with the idea of using ext2lib.
+</p>
+
+<p>
+We thus faced the challenge of learning the poorly documented API of a complex library we didn't even know existed before, as a prerequisite to actually starting the assignment.
+</p>
+
+<p>
+PyExt2lib, albeit not crucial to overcoming this problem (which required countless hours reading the e2fsprogs source code), provided a nice abstraction over the underlying library once we got the hang of it. That is, my partner and I could rapidly encapsulate chains of undocumented ext2lib API calls into Python code implementing the functionalities we actually needed, such as iterating over all free blocks.
+</p>
+
+<p>
+Using Python also helped us with post-processing the information, a task that was made quite simple using the built-in types as data structures and matplotlib for the histograms.
+</p>
+
+<p>
+I had already used Cython before in a patch for xmms2, liked it and wanted to learn more about it. That and the fact that GSoC may require me to use it again made it the tool of choice to develop PyExt2lib.
+</p>
+
+<p>
+Even though PyExt2lib is incomplete and might never get finished, and contains some plain ugly hacks, I like to think it served its purpose and taught a few things in the process.
+</p>
+
+<p>
+We did, after all, deliver the assignment in time, and aside from the bindings themselves, it boiled down to about 400 lines of Python that came together in a few days.
+</p>

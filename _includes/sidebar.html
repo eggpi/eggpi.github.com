@@ -1,0 +1,37 @@
+<div id="sidebar" class="layout-block column">
+    <ol>
+        <li class="sidebar-entry">
+            <h2>whoami</h2>
+            <img src="/img/me.jpg"/>
+            <p>
+            I'm <a href="/about.html">Guilherme P. Gonçalves</a> and this is
+            my blog, where I'll write not so regularly about the cool stuff
+            I'm passionate about: free software, algorithms, my projects and
+            whatnot.
+            </p>
+        </li>
+
+        <li class="sidebar-entry">
+            <h2>Search posts</h2>
+            {% include google_search.html %}
+        </li>
+
+        <li class="sidebar-entry">
+            <h2>Latest posts</h2>
+                <ol>
+                    {% for p in site.posts limit: 3 %}
+                        <li><a href="{{ p.url }}">{{ p.title}}</a></li>
+                    {% endfor %}
+                </ol>
+        </li>
+
+        <li class="sidebar-entry">
+            <h2>Related posts</h2>
+                <ol>
+                    {% for p in site.related_posts limit: 5 %}
+                        <li><a href="{{ p.url }}">{{ p.title}}</a></li>
+                    {% endfor %}
+                </ol>
+        </li>
+    </ol>
+</div>

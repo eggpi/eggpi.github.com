@@ -1,0 +1,33 @@
+---
+layout: post
+title: Further steps towards RPC
+tags: [GSoC 2011, xmms2]
+---
+
+<p>
+In the <a href="/2011/06/26/On-to-the-client-side.html" title="On to the client side...">last progress update</a>, I talked about how we were moving to the client side of the Service Clients implementation.
+</p>
+
+<p>
+Things have progressed quite a bit since then, but unfortunately that part of the project is nowhere near ready (nor will it be by the end of GSoC, which is right around the corner). Anyway, I thought I'd share a bit of what I've been working on during the past weeks of coding.
+</p>
+
+<p>
+The lower level of what we have in mind for the client side is complete and somewhat solid. This means it is possible for clients to pass messages and replies around reliably, using the server as a bridge. The plan now is to use that capability to model the Service Client functionality.
+</p>
+
+<p>
+As a demonstration/proof-of-concept, we decided to brush up the very first two service clients that were conceived, <em>sumclient</em> and <em>sumservice</em>, and add them to the xmms2-tutorials submodule as <a href="http://github.com/guilherme-pg/xmms2-tutorial/blob/master/c/tut9.c" title="tut9">tut9</a> and <a href="http://github.com/guilherme-pg/xmms2-tutorial/blob/master/c/tut10.c" title="tut10">tut10</a>.
+</p>
+
+<p>
+I'm currently working on a higher level layer on top of that, which is the actual modelling of remote procedure calls and introspection. As a general concept, we agreed on allowing service clients to define and expose three types of basic entities to other clients: namespaces, methods and broadcasts. This means offering a service will be a matter of defining one (or more (or nested)) namespaces containing methods and broadcasts which can be accessed by regular clients by sending a specially-formatted message to the service client.
+</p>
+
+<p>
+My work on this last week of GSoC has been on the code that defines these entities, which (I think) started to take shape around <a href="http://github.com/guilherme-pg/xmms2-guilherme/commit/ba5b376c68ce550e51db295e57f2a502a4b070eb">this commit</a>. That code hasn't yet been reviewed and may soon suffer alterations.
+</p>
+
+<p>
+With that out of the way, the remaining work roughly boils down to implementing the code that articulates these data structures to offer the Service Client functionality. Basically that code should be a callback to the MESSAGE broadcast (which carries client-to-client messages routed through the server) that reacts to predefined types of messages, thus being able to dispatch method calls, reply to introspection calls, record a subscription to a broadcast and so on.
+</p>
