@@ -14,16 +14,22 @@
     color: #363333;
 }
 
-#post-content .standout, .highlight, blockquote {
+blockquote {
     padding-left: 10px;
+}
+
+#post-content .standout, .highlight, blockquote {
     margin-top: 15px;
     margin-left: 50px;
     margin-right: 30%;
     border: solid black 1px;
 }
 
-#post-content .highlight {
+#post-content .highlight, .standout {
     padding: 10px;
+}
+
+#post-content .highlight {
     overflow: auto;
 }
 
