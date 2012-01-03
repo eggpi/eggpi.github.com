@@ -5,15 +5,14 @@
     <title>might as well hack it</title>
     <meta name="author" content="Guilherme P. Gonçalves"/>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <link rel="stylesheet" href="/css/common.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/default.css" type="text/css"/>
     <link rel="stylesheet" href="/css/syntax.css" type="text/css"/>
-    <link rel="stylesheet" href="/css/post.css" type="text/css"/>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="/js/hjkl.js"></script>
 </head>
 <body>
     <!-- Top header and navigation bar -->
-    <div id="header" class="layout-block">
+    <div id="header" class="layout-element">
         <h1>might as well hack it</h1>
         <h2>the good, the bad and the pointless</h2>
     </div>
@@ -26,7 +25,7 @@
     </div>
 
     <!-- Sidebar -->
-    <div id="sidebar" class="layout-block column">
+    <div id="sidebar" class="layout-element">
         <ol>
             <li class="sidebar-entry">
                 <h2>whoami</h2>
@@ -67,7 +66,7 @@
     </div>
 
     <!-- Page contents -->
-    <div id="post-content" class="column">
+    <div id="content">
         <h1><a href="{{ page.url }}">{{ page.title }}</a></h1>
         {% if page.type != "page" %}
             <h2>Published {{ page.date | date_to_string }}</h2>
@@ -119,7 +118,7 @@
             {% endif %}
 
             {% if next != null %}
-                <a id="next" href={{next.url}}>Next</a>
+                <a id="next" class="navlink" href={{next.url}}>Next</a>
             {% endif %}
 
             {% if previous != null %}
