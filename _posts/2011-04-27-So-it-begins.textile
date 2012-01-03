@@ -4,18 +4,12 @@ title: So it begins...
 tags: [GSoC 2011, xmms2]
 ---
 
-<p>
 I have been accepted by <a href="http://xmms2.org">xmms2</a> as a student for GSoC this year!
-</p>
-<p>
+
 My proposal is to implement <a href="http://www.google-melange.com/gsoc/project/google/gsoc2011/guilherme_pg/14003">Service Clients</a>: basically, clients that can offer functionalities to other clients by exposing methods for remote calls.
 This is actually a long-standing idea, and there's even an incomplete
 implementation already.
-</p>
-<p>
-It will be very interesting to see all sorts of crazy services popping up after I'm done with my project...
-</p>
 
-<p>
+It will be very interesting to see all sorts of crazy services popping up after I'm done with my project...
+
 Stay tuned!
-</p>

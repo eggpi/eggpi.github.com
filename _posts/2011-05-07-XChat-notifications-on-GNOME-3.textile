@@ -4,52 +4,31 @@ title: XChat notifications on GNOME 3
 tags: [gnome 3, xchat, hack, libnotify]
 ---
 
-<p>
 Yesterday I decided to upgrade my Gentoo system to GNOME 3. It was not a painless process, although I must admit I expected worse.
-</p>
 
-<p>
 One of the small annoyances that issued from the migration was that I could no longer rely on a blinking XChat tray icon to warn me of new IRC messages since, well, there's no immediately visible tray. Messing with the alarm settings in XChat, I came across an option to display Notification Baloons with libnotify. Thinking it might be nice to have an occasional balloon popping up with the new message text, I enabled it.
-</p>
 
-<p>
 It did work, but:
-</p>
 
 <table class="img-wrap standout">
     <tr><td><img alt="So many messages!" src="/img/notify-send-clutter.png" title="So many messages!" /></td></tr>
     <tr><td class="img-caption">-- So many messages!</td><tr>
 </table>
 
-<p>
 For every message sent, not only a balloon would pop up and vanish after a few seconds, but also an icon would persist in the notification panel. The notification panel would shortly be cluttered by lots of useless icons.
 (Ok, so this screenshot is actually me reproducing the problem manually, and not XChat causing it, but you get the idea).
-</p>
 
-<p>
 Looking up the problem a bit, I found out that it <a href="http://bugzilla.redhat.com/show_bug.cgi?id=693207">had happened before</a>, and could be solved by simply spawning the notification balloon with the appropriate parameters (namely, with a new <em>transient</em> hint set).
-</p>
 
-<p>
 So, by grepping the XChat 2.8.8 source code for <em>notify-send</em>, I eventually reached the file where the magic happens, <a href="http://xchat.svn.sourceforge.net/viewvc/xchat/src/fe-gtk/plugin-tray.c?view=markup&amp;pathrev=1453">which looked somewhat like this</a>.
-</p>
 
-<p>
 After tinkering a bit, I found out that XChat 2.8.8 first attempts to load libnotify dynamically in order to use notification balloons, and if that fails, it falls back to calling the notify-send utility. So adding the <em>transient</em> hint would require changes in two sections of the code.
-</p>
 
-<p>
 And here's the <a href="http://pastebin.com/CaYGKGp3">diff of my modifications</a>. Basically I used <a href="http://developer.gnome.org/libnotify/0.7/NotifyNotification.html#notify-notification-set-hint">notify_notification_set_hint</a> in the code section that attempts to use libnotify and added the command line parameter described in the bug above to notify-send.
-</p>
 
-<p>
 After applying this and compiling, notifications no longer leave  icons in the panel, which is exactly what I wanted.
-</p>
 
-<p>
 I eventually found out that due to <a href="http://sourceforge.net/tracker/?func=detail&amp;aid=3109838&amp;group_id=239&amp;atid=100239">some</a> <a href="http://sourceforge.net/tracker/?func=detail&amp;aid=3280223&amp;group_id=239&amp;atid=100239">bugs</a> present in my version of XChat, the libnotify code (but not the notify-send code) always fails even before my changes have a chance to run. Well, at least I didn't break it any further :-).
-</p>
 
-<p>
 Come to think of it, I should probably have tried the latest SVN version first, since it fixes several issues with that specific file. But I had my fun anyway, and will gladly upgrade when the next XChat version comes out.
-</p>
+

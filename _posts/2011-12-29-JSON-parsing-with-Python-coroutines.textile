@@ -4,75 +4,47 @@ title: JSON parsing with Python coroutines
 tags: [coroutine, json, python, state machines]
 ---
 
-<p>
 A while ago, I read a blog post by Python developer Eli Bendersky on <a href="http://eli.thegreenplace.net/2009/08/29/co-routines-as-an-alternative-to-state-machines/" title="Co-routines as an alternative to state machines">Co-routines as an alternative to state machines</a>, in which he presents evidence to support a very interesting observation quoted below:
-</p>
 
 <blockquote>
-    Co-routines are to state machines what recursion is to stacks.
+Co-routines are to state machines what recursion is to stacks.
 </blockquote>
 
-<p>
 which is to say, state machines can be expressed as concisely and elegantly through the use of coroutines as recursive algorithms through recursive functions (as opposed to using an explicit stack).
-</p>
 
-<p>
 Now, coroutines you say?
-</p>
 
-<p>
 To quote from the Wikipedia entry:
-</p>
 
 <blockquote>
-    <a href="https://en.wikipedia.org/wiki/Coroutine" title="Coroutines on Wikipedia">Coroutines</a> are computer program components that generalize subroutines to allow multiple entry points for suspending and resuming execution at certain locations.
+<a href="https://en.wikipedia.org/wiki/Coroutine" title="Coroutines on Wikipedia">Coroutines</a> are computer program components that generalize subroutines to allow multiple entry points for suspending and resuming execution at certain locations.
 </blockquote>
 
-<p>
 Which, in simpler terms, means a coroutine is like a function from which you may yield and resume control at arbitrary instructions -- <em>there is no longer a single entry point to the procedure expressed as a coroutine</em>.
-</p>
 
-<p>
 The emphasized statement above is probably the main argument in favor of using coroutines to implement state machines, as it makes restoring the coroutine's execution context (that is, the state in a state machine) when new input arrives much simpler, without requiring boilerplate control structures such as <strong>if</strong> <em>in state 1</em>: ... <strong>elif</strong> <em>in state 2</em> ...
-</p>
 
-<p>
 While coroutines don't seem to be a recent addition to Python (support for them has apparently been under discussion since 2005, when <a href="http://www.python.org/dev/peps/pep-0342/" title="PEP 342">PEP 342</a>, which describes the implementation, was written), looks like they haven't achieved widespread usage, which is my way of kindly stating I had never heard of them until very recently.
-</p>
 
-<p>
 I won't really go into details with regard to the syntax for coroutines, as their use is quite well described in Eli Bendersky's post and references, and their abuse is cleverly documented by David Beazley's presentation <a href="http://www.dabeaz.com/generators/index.html" title="Generator Tricks for Systems Programmers">Generator Tricks for Systems Programmers</a>.
-</p>
 
-<p>
 So over the last couple of days I've been experimenting with the ideas above in a pet project: a simple JSON parser using state machines implemented as coroutines. I must remark that this parser has little to no actual utility, as it may still be buggy and is much, much less robust and efficient than the <a href="http://docs.python.org/library/json.html" title="json Python module documentation">json module in Python's standard library</a>. Even so, I hope it might be useful for illustration and educational purposes.
-</p>
 
-<p>
 Basically I converted the railroad diagrams in the <a href="http://json.org" title="JSON.org">JSON website</a> into state machines that operate on one character at a time from the input, and made a familiar loads() function on top of those to simplify parsing from a string.
-</p>
 
 <table class="img-wrap standout">
     <tr><td><img alt="Railroad diagram for JSON strings" src="http://json.org/string.gif" title="Railroad diagram for JSON strings" /></td></tr>
     <tr><td class="img-caption">-- Railroad diagram for JSON strings</td><tr>
 </table>
 
-<p>
 As an appetite whetter, let's have a look at the string parser corresponding to the diagram above:
-</p>
 
 {% highlight python linenos %}
 {% include snippets/jsonfsm.py %}
 {% endhighlight %}
 
-<p>
 As you can see, there is a straightforward correspondence between the diagram and the code, with the <em>yield</em> expressions bringing in the characters that govern state transitions.
-</p>
 
-<p>
 Writing this parser was a very pleasant experience that helped get my head around a convoluted construct. While I must concede that the parsing state machines do look pleasingly concise, I also felt that the use of coroutines also contributed to the complexity of the code in some aspects. For one, debugging resumable functions with multiple entry points certainly takes some time to get used to.
-</p>
 
-<p>
 In case anyone wants to try it, the code is in my Github page, under the name <a href="https://github.com/guilherme-pg/jsonfsm" title="jsonfsm on Github">jsonfsm</a>. The repository contains the full code for the module and a few tests, some of which were borrowed from xmms2 (thanks!). Check it out!
-</p>
