@@ -66,54 +66,58 @@
 
     <div id="post-content" class="column">
         <h1><a href="{{ page.url }}">{{ page.title }}</a></h1>
-        <h2>Published {{ page.date | date_to_string }}</h2>
+        {% if page.type != "page" %}
+            <h2>Published {{ page.date | date_to_string }}</h2>
+        {% endif %}
         <br/>
 
         {{ content }}
 
-        <br/>
-        {% assign previous = null %}
-        {% assign next = null %}
-        {% assign last = null %}
+        {% if page.type != "page" %}
+            <br/>
+            {% assign previous = null %}
+            {% assign next = null %}
+            {% assign last = null %}
 
-        {% for p in site.posts %}
-            {% if page.id == p.id %}
-                {% assign next = last %}
+            {% for p in site.posts %}
+                {% if page.id == p.id %}
+                    {% assign next = last %}
+                {% endif %}
+
+                {% if page.id == last.id %}
+                    {% assign previous = p %}
+                {% endif %}
+
+                {% assign last = p %}
+            {% endfor %}
+
+            {% if page.tags.size > 0 %}
+                <div id="tags">
+                    <em>Tags:</em>
+                    <ul>
+                        {% for tag in page.tags %}
+                            {% assign url = "/tags.html" %}
+
+                            {% if forloop.last %}
+                                <li class="last">
+                            {% else %}
+                                <li>
+                            {% endif %}
+
+                            <a href="{{ url | append: '#' }}{{ tag | replace: ' ','-' }}">{{ tag }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
             {% endif %}
 
-            {% if page.id == last.id %}
-                {% assign previous = p %}
+            {% if next != null %}
+                <a id="next" href={{next.url}}>Next</a>
             {% endif %}
 
-            {% assign last = p %}
-        {% endfor %}
-
-        {% if page.tags.size > 0 %}
-            <div id="tags">
-                <em>Tags:</em>
-                <ul>
-                    {% for tag in page.tags %}
-                        {% assign url = "/tags.html" %}
-
-                        {% if forloop.last %}
-                            <li class="last">
-                        {% else %}
-                            <li>
-                        {% endif %}
-
-                        <a href="{{ url | append: '#' }}{{ tag | replace: ' ','-' }}">{{ tag }}</a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        {% endif %}
-
-        {% if next != null %}
-            <a id="next" href={{next.url}}>Next</a>
-        {% endif %}
-
-        {% if previous != null %}
-            <a id="previous" href={{previous.url}}>Previous</a>
+            {% if previous != null %}
+                <a id="previous" href={{previous.url}}>Previous</a>
+            {% endif %}
         {% endif %}
     </div>
 </body>

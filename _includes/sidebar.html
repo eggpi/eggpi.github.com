@@ -25,13 +25,15 @@
                 </ol>
         </li>
 
-        <li class="sidebar-entry">
-            <h2>Related posts</h2>
-                <ol>
-                    {% for p in site.related_posts limit: 5 %}
-                        <li><a href="{{ p.url }}">{{ p.title}}</a></li>
-                    {% endfor %}
-                </ol>
-        </li>
+        {% if page.type != "page" %}
+            <li class="sidebar-entry">
+                <h2>Related posts</h2>
+                    <ol>
+                        {% for p in site.related_posts limit: 5 %}
+                            <li><a href="{{ p.url }}">{{ p.title}}</a></li>
+                        {% endfor %}
+                    </ol>
+            </li>
+        {% endif %}
     </ol>
 </div>
