@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: The coding begins!
 tags: [GSoC 2011, xmms2]
 ---

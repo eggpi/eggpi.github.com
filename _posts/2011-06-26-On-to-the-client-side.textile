@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: On to the client side...
 tags: [GSoC 2011, xmms2]
 ---

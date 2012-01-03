@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: ec09bot, the time-waster Python IRC bot (and what it taught me)
 tags: [irc bot, python, twitter]
 ---

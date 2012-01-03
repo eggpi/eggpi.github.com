@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: So it begins...
 tags: [GSoC 2011, xmms2]
 ---

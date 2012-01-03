@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: XChat notifications on GNOME 3
 tags: [gnome 3, xchat, hack, libnotify]
 ---

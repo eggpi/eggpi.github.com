@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: JSON parsing with Python coroutines
 tags: [coroutine, json, python, state machines]
 ---
