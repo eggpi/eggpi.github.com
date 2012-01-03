@@ -26,6 +26,10 @@
     overflow: auto;
 }
 
+#post-content .lineno {
+    margin-right: 1em;
+}
+
 #post-content .standout {
     background-color: #f8f8f8;
 }
