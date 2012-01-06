@@ -3,6 +3,10 @@
     padding: 0px;
 }
 
+*:focus {
+    outline: none;
+}
+
 body {
     background: url(/img/background.jpg) repeat-y 80% 0;
     font-family: Georgia,serif;
