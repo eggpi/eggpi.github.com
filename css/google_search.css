@@ -1,0 +1,57 @@
+#cse input.gsc-search-button {
+    background-color: #363333;
+    border: 1px solid black;
+    padding: 0px 2px;
+    color: #eae7df;
+}
+
+#cse td.gsc-input {
+    padding-right: 2px;
+    border: 1px solid black;
+}
+
+#cse input.gsc-input {
+    width: 100%;
+    border: none;
+}
+
+#cse table.gsc-search-box input {
+    height: 25px;
+}
+
+#cse div.gsc-branding-text, td.gsc-branding-img {
+    display: none;
+}
+
+#cse .gs-result .gs-title * {
+    color: black;
+}
+
+#cse .gs-result .gs-title a:visited, #cse .gs-result .gs-title a:visited * {
+    color: gray;
+}
+
+#cse .gs-result a.gs-visibleUrl, .gs-result .gs-visibleUrl {
+    color: black;
+    margin-bottom: 10px;
+}
+
+#cse .gsc-results .gsc-cursor-box .gsc-cursor-current-page {
+    color: black;
+    font-style: bold;
+}
+
+#cse .gs-no-results-result .gs-snippet, .gs-error-result .gs-snippet {
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    background-color: transparent;
+    padding-left: 8px;
+    color: gray;
+}
+
+.gsc-webResult .gsc-result {
+    padding: 0px;
+    margin: 0px;
+    border: none;
+}
