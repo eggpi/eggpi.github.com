@@ -15,7 +15,7 @@ And indeed some very interesting techniques were elicited in the replies to that
 A brief explanation on that solution: <a title="Sorting networks" href="http://en.wikipedia.org/wiki/Sorting_networks">sorting networks</a> are abstract representations of the comparisons and swaps used to sort a fixed number of integers. They are often schematized as circuits in which input wires carry the values through pairwise compare-and-swap gates.
 
 <table class="img-wrap standout">
-    <tr><td><a href="http://en.wikipedia.org/wiki/Sorting_network"><img title="Simple sorting network" src="http://upload.wikimedia.org/wikipedia/en/e/e9/SimpleSortingNetwork2.svg" alt="A simple sorting network from Wikipedia" width="400" height="250" /></a></td></tr>
+    <tr><td style="width: 400px; height: 250px"><a href="http://en.wikipedia.org/wiki/Sorting_network"><img title="Simple sorting network" src="http://upload.wikimedia.org/wikipedia/en/e/e9/SimpleSortingNetwork2.svg" alt="A simple sorting network from Wikipedia" /></a></td></tr>
     <tr><td class="img-caption">-- A simple sorting network for four elements</td><tr>
 </table>
 
