@@ -10,7 +10,7 @@ We had some nice ideas about my proposal during the Community Bonding Period and
 
 I started coding the server object described in the last section of the wiki page yesterday, and also made some progress today. I'll have some code to show in the next few days.
 
-And before I forget: last week I copied over the official XMMS2 development repository to <a href="https://github.com/guilherme-pg/xmms2-guilherme" title="xmms2-guilherme" target="_blank">a repository of my own in Github</a>, which is where my changes will end up when they are a little more mature.
+And before I forget: last week I copied over the official xmms2 development repository to <a href="https://github.com/guilherme-pg/xmms2-guilherme" title="xmms2-guilherme" target="_blank">a repository of my own in Github</a>, which is where my changes will end up when they are a little more mature.
 
 I'll also update the wiki page with the issues I encounter and necessary clarifications as I go.
 
