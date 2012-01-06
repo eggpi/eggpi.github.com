@@ -15,8 +15,7 @@ It did work, but:
     <tr><td class="img-caption">-- So many messages!</td><tr>
 </table>
 
-For every message sent, not only a balloon would pop up and vanish after a few seconds, but also an icon would persist in the notification panel. The notification panel would shortly be cluttered by lots of useless icons.
-(Ok, so this screenshot is actually me reproducing the problem manually, and not XChat causing it, but you get the idea).
+For every message sent, not only a balloon would pop up and vanish after a few seconds, but also an icon would persist in the notification panel. The notification panel would shortly be cluttered by lots of useless icons. (Ok, so this screenshot is actually me reproducing the problem manually, and not XChat causing it, but you get the idea).
 
 Looking up the problem a bit, I found out that it <a href="http://bugzilla.redhat.com/show_bug.cgi?id=693207">had happened before</a>, and could be solved by simply spawning the notification balloon with the appropriate parameters (namely, with a new <em>transient</em> hint set).
 
@@ -28,7 +27,7 @@ And here's the <a href="http://pastebin.com/CaYGKGp3">diff of my modifications</
 
 After applying this and compiling, notifications no longer leave  icons in the panel, which is exactly what I wanted.
 
-I eventually found out that due to <a href="http://sourceforge.net/tracker/?func=detail&amp;aid=3109838&amp;group_id=239&amp;atid=100239">some</a> <a href="http://sourceforge.net/tracker/?func=detail&amp;aid=3280223&amp;group_id=239&amp;atid=100239">bugs</a> present in my version of XChat, the libnotify code (but not the notify-send code) always fails even before my changes have a chance to run. Well, at least I didn't break it any further :-).
+I eventually found out that due to <a href="http://sourceforge.net/tracker/?func=detail&amp;aid=3109838&amp;group_id=239&amp;atid=100239">some</a> <a href="http://sourceforge.net/tracker/?func=detail&amp;aid=3280223&amp;group_id=239&amp;atid=100239">bugs</a> present in my version of XChat, the libnotify code (but not the notify-send code) always fails even before my changes have a chance to run. Well, at least I didn't break it any further.
 
 Come to think of it, I should probably have tried the latest SVN version first, since it fixes several issues with that specific file. But I had my fun anyway, and will gladly upgrade when the next XChat version comes out.
 
