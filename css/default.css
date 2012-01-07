@@ -169,3 +169,6 @@ a:visited {
     margin: 10px 0px;
 }
 
+#comments {
+    display: none;
+}

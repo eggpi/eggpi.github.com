@@ -75,28 +75,9 @@
 
         {{ content }}
 
-        {% comment %}
-            Add links to previous and next post, unless this is a page.
-        {% endcomment %}
-
         {% if page.type != "page" %}
             <br/>
-            {% assign previous = null %}
-            {% assign next = null %}
-            {% assign last = null %}
-
-            {% for p in site.posts %}
-                {% if page.id == p.id %}
-                    {% assign next = last %}
-                {% endif %}
-
-                {% if page.id == last.id %}
-                    {% assign previous = p %}
-                {% endif %}
-
-                {% assign last = p %}
-            {% endfor %}
-
+            <a id="comments-toggle" href="#comments"><em>Toggle Comments</em></a>
             {% if page.tags.size > 0 %}
                 <div id="tags">
                     <em>Tags:</em>
@@ -117,6 +98,28 @@
                 </div>
             {% endif %}
 
+            {% include disqus_thread.html %}
+
+            {% comment %}
+                Add links to previous and next post, unless this is a page.
+            {% endcomment %}
+
+            {% assign previous = null %}
+            {% assign next = null %}
+            {% assign last = null %}
+
+            {% for p in site.posts %}
+                {% if page.id == p.id %}
+                    {% assign next = last %}
+                {% endif %}
+
+                {% if page.id == last.id %}
+                    {% assign previous = p %}
+                {% endif %}
+
+                {% assign last = p %}
+            {% endfor %}
+
             {% if next != null %}
                 <a id="next" class="navlink" href={{next.url}}>Next</a>
             {% endif %}
@@ -124,6 +127,7 @@
             {% if previous != null %}
                 <a id="previous" href={{previous.url}}>Previous</a>
             {% endif %}
+
         {% endif %}
     </div>
 </body>
