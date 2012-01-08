@@ -23,6 +23,11 @@
     display: none;
 }
 
+#cse .gs-result .gs-title {
+    height: auto;
+    overflow: hidden;
+}
+
 #cse .gs-result .gs-title * {
     color: black;
 }
