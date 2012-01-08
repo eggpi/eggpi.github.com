@@ -1,0 +1,29 @@
+---
+layout: default
+type: page
+---
+
+<h1>404</h1>
+<h2><em>four oh four</em></h2>
+<h2><em>quatrocentos e quatro</em></h2>
+
+<p>
+Whatever you call it, sorry, this means this page doesn't exist.
+</p>
+
+<p>
+But do stick around!
+</p>
+
+<p>
+Here, I'll even give you this link to a <a href="/" id="random-link">random post</a>, no strings attached.
+</p>
+
+<script>
+    $.getJSON("/latest.json",
+        function(data) {
+            var index = Math.floor(data.length * Math.random());
+            $("#random-link").attr("href", data[index]);
+        }
+    )
+</script>

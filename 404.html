@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>might as well hack it </title>
+    <meta name="author" content="Guilherme P. Gonçalves"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="/css/default.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/syntax.css" type="text/css"/>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/hjkl.js"></script>
+</head>
+<body>
+    <!-- Top header and navigation bar -->
+    <div id="header" class="layout-element">
+        <h1>might as well hack it</h1>
+        <h2>the good, the bad and the pointless</h2>
+    </div>
+
+    <div id="topbar">
+        <ol>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about.html">About</a></li>
+        </ol>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="layout-element">
+        <ol>
+            <li class="sidebar-entry">
+                <h2>whoami</h2>
+                <img src="/img/me.jpg"/>
+                <p>
+                I'm <a href="/about.html">Guilherme P. Gonçalves</a> and this is
+                my blog, where I'll write not so regularly about the cool stuff
+                I'm passionate about: free software, algorithms, my projects and
+                whatnot.
+                </p>
+            </li>
+
+            <li class="sidebar-entry">
+                <h2>Search posts</h2>
+                <!-- Google custom search form -->
+<div id="cse" style="width: 100%;">Loading</div>
+<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">
+  google.load('search', '1', {language : 'en', theme: null });
+  google.setOnLoadCallback(function() {
+    var customSearchControl = new google.search.CustomSearchControl(
+      '012184419941352214557:rhnrabjbsyg');
+
+    customSearchControl.setResultSetSize(google.search.Search.SMALL_RESULTSET);
+    customSearchControl.draw('cse');
+  }, true);
+</script>
+<link rel="stylesheet" href="/css/google_search.css" type="text/css"/>
+
+            </li>
+
+            <li class="sidebar-entry">
+                <h2>Latest posts</h2>
+                    <ol>
+                        
+                            <li><a href="/2011/12/29/JSON-parsing-with-Python-coroutines.html">JSON parsing with Python coroutines</a></li>
+                        
+                            <li><a href="/2011/09/02/Fun-with-sorting-networks.html">Fun with sorting networks</a></li>
+                        
+                            <li><a href="/2011/08/17/Further-steps-towards-RPC.html">Further steps towards RPC</a></li>
+                        
+                    </ol>
+            </li>
+
+            
+        </ol>
+    </div>
+
+    <!-- Page contents -->
+    <div id="content">
+        <h1><a href="/404.html"></a></h1>
+        
+        <br/>
+
+        <h1>404</h1>
+<h2><em>four oh four</em></h2>
+<h2><em>quatrocentos e quatro</em></h2>
+
+<p>
+Whatever you call it, sorry, this means this page doesn't exist.
+</p>
+
+<p>
+But do stick around!
+</p>
+
+<p>
+Here, I'll even give you this link to a <a href="/" id="random-link">random post</a>, no strings attached.
+</p>
+
+<script>
+    $.getJSON("/latest.json",
+        function(data) {
+            var index = Math.floor(data.length * Math.random());
+            $("#random-link").attr("href", data[index]);
+        }
+    )
+</script>
+
+
+        
+    </div>
+</body>
+</html>
