@@ -1,5 +1,9 @@
 // Handle navigation between posts when 'h' or 'l' is pressed.
 function handleNavigate(e) {
+    if (document.activeElement !== document.body) {
+        return;
+    }
+
     if (e.altKey || e.ctrlKey || e.shiftKey || e.metaKey) {
         return;
     }
@@ -23,6 +27,10 @@ function handleNavigate(e) {
 
 // Handle scrolling when 'j' or 'k' is pressed.
 function handleScroll(e) {
+    if (document.activeElement !== document.body) {
+        return;
+    }
+
     if (e.altKey || e.ctrlKey || e.shiftKey || e.metaKey) {
         return;
     }
