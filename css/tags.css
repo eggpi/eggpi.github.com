@@ -1,0 +1,28 @@
+#content #tag-group-frame {
+    margin-top: 20px;
+}
+
+#content .tag-group {
+    margin: 5px 0px;
+    padding: 5px;
+    border: 2px solid black;
+}
+
+#content .tag-group-toggle {
+    cursor: pointer;
+    font-size: small;
+}
+
+#content .tag-group-title {
+    display: inline;
+    margin-left: 5px;
+}
+
+#content .tag-group .tag-group-posts {
+    display: none;
+    margin-top: 10px;
+}
+
+#content .tag-group li {
+    list-style: none;
+}

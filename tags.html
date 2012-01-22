@@ -1,0 +1,76 @@
+---
+layout: default
+type: page
+---
+
+<link rel="stylesheet" href="/css/tags.css" type="text/css"/>
+
+<h1>Tag index</h1>
+<h2><em>All posts in juicy tag grouping</em></h2>
+
+<script>
+    // XXX must be compatible with the id used in the default layout
+    // for posts.
+    function idFromTag(tag) {
+        return tag.replace(RegExp("\\s", "g"), "-");
+    }
+
+    function createTagGroup(tag) {
+        var template = [
+            '<div class="tag-group" id="' + idFromTag(tag) + '">',
+                '<span class="tag-group-toggle">[+]</span>',
+                '<h2 class="tag-group-title">All posts tagged ',
+                    "<em>" + tag + "</em>",
+                "</h2>",
+                '<ul class="tag-group-posts"></ul>',
+            "</div>"
+        ]
+
+        var group = $(template.join(""));
+
+        group.children(".tag-group-toggle").click(
+            function() {
+                toggleGroup(group);
+            });
+
+        return group;
+    }
+
+    function toggleGroup(group) {
+        var toggle = $(group).children(".tag-group-toggle");
+
+        $(group).children(".tag-group-posts").toggle();
+
+        if (toggle.text() == "[-]") $(toggle).text("[+]");
+        else $(toggle).text("[-]");
+    }
+
+    $.getJSON("/index.json",
+        function(index) {
+            var frame = $('<div id="tag-group-frame">');
+            $("#content").append(frame);
+
+            for (i = 0; i < index.length; i++) {
+                var post = index[i];
+
+                for (j = 0; j < post.tags.length; j++) {
+                    var tag = post.tags[j];
+                    var id = idFromTag(tag);
+
+                    var group = frame.children("#" + id).get(0);
+                    if (!group) {
+                        var group = createTagGroup(tag);
+                        frame.append(group);
+                    }
+
+                    var link = $("<a>" + post.title + "</a>").attr("href", post.url);
+                    $(group).children("ul").append($("<li>").append(link));
+                }
+            }
+
+            var target = window.location.hash;
+            if (target) {
+                toggleGroup($(target));
+            }
+        });
+</script>
