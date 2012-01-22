@@ -1,7 +1,7 @@
 ---
 layout: default
 title: JSON parsing with Python coroutines
-tags: [coroutine, json, python, state machines]
+tags: [coroutine, json, python, state machines, generator]
 ---
 
 A while ago, I read a blog post by Python developer Eli Bendersky on <a href="http://eli.thegreenplace.net/2009/08/29/co-routines-as-an-alternative-to-state-machines/" title="Co-routines as an alternative to state machines">Co-routines as an alternative to state machines</a>, in which he presents evidence to support a very interesting observation quoted below:
