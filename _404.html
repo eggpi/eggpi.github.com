@@ -20,10 +20,10 @@ Here, I'll even give you this link to a <a href="/" id="random-link">random post
 </p>
 
 <script>
-    $.getJSON("/latest.json",
+    $.getJSON("/index.json",
         function(data) {
             var index = Math.floor(data.length * Math.random());
-            $("#random-link").attr("href", data[index]);
+            $("#random-link").attr("href", data[index].url);
         }
     )
 </script>

@@ -1,0 +1,14 @@
+---
+---
+
+{% comment %}
+An index of post titles, their urls and tags so we can build the tags page.
+{% endcomment %}
+
+[{% for p in site.posts %}
+    {
+        "title": "{{ p.title }}",
+        "url": "{{ p.url }}",
+        "tags": [{% for t in p.tags %}"{{ t }}"{% if forloop.last %}]{% else %},{%endif%}{% endfor %}
+    }{% if forloop.last %}]{% else %},{% endif %}
+{% endfor %}
