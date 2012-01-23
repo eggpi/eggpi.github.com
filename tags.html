@@ -68,9 +68,10 @@ type: page
                 }
             }
 
-            var target = window.location.hash;
+            var target = $(window.location.hash);
             if (target) {
-                toggleGroup($(target));
+                toggleGroup(target);
+                $(window).scrollTop(target.offset().top);
             }
         });
 </script>
