@@ -63,7 +63,7 @@ type: page
                         frame.append(group);
                     }
 
-                    var link = $("<a>" + post.title + "</a>").attr("href", post.url);
+                    var link = $("<a>").text(post.title).attr("href", post.url);
                     $(group).children("ul").append($("<li>").append(link));
                 }
             }
