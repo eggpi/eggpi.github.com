@@ -69,7 +69,7 @@ title: Tag index
             }
 
             var target = $(window.location.hash);
-            if (target) {
+            if (target.length) {
                 toggleGroup(target);
                 $(window).scrollTop(target.offset().top);
             }
