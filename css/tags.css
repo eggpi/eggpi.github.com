@@ -10,7 +10,7 @@
 
 #content .tag-group-toggle {
     cursor: pointer;
-    font-size: small;
+    font-family: monospace;
 }
 
 #content .tag-group-title {
