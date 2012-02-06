@@ -1,0 +1,335 @@
+---
+layout: default
+title: Weighty Hamming weights
+tags: [algorithms, optimization, hamming weight, bit hack]
+---
+
+I recently got myself a copy of Jon Bentley's <a alt="Programming Pearls on Amazon" href="http://www.amazon.com/Programming-Pearls-2nd-Jon-Bentley/dp/0201657880/">Programming Pearls</a>, which I will review in an upcoming post. It's been quite an instructive reading, and I've been trying hard to pace myself, understanding the examples and working out some of the problems at the end of each Column without rushing through the pages.
+
+Having just finished Part II of the book, which overviews several interesting principles for improving the performance of a program, from choice of algorithms and data structures to low-level code tuning, I thought I'd try to apply some of these concepts in a thorough resolution of a proposed problem.
+
+The problem in question is the 7th of Column 9, which asks:
+
+<blockquote>
+Given a very long sequence (say, billions or trillions) of bytes, how would you efficiently count the total number of one bits? (That is, how many bits are turned on in the entire sequence?)
+</blockquote>
+
+The count of one bits in a binary string is known as its <a alt="Hamming weight on Wikipedia" href="http://en.wikipedia.org/wiki/Hamming_weight">Hamming weight</a>, so the problem could also be stated as requiring the Hamming weight of a big string of bits.
+
+The Hamming weight of a binary string may play an important role in applications in which each bit encodes information about a distinct entity, and one wishes to count entities with a given property. For instance, given a filesystem bitmap which encodes used and free blocks as zero and one bits, respectively, the Hamming distance can be used to calculate the amount of free disk space.
+
+There are known and obscure techniques for making such calculation. In particular, the thread <a alt="Best algorithm to count the number of set bits in a 32 bit integer" href="http://stackoverflow.com/questions/109023/best-algorithm-to-count-the-number-of-set-bits-in-a-32-bit-integer">Best algorithm to count the number of set bits in a 32-bit integer</a> on Stack Overflow abounds with solutions for strings of 32 bits.
+
+I approached the problem by first creating a 2.8Gib file of random bits to serve as input for my algorithms. Then, I attempted to solve the problem by using a lookup table of bit counts so as to avoid having to iterate through each of the input bits and maybe take advantage of caching for the lookup table. This is the resulting C code:
+
+{% highlight c linenos %}
+{% include snippets/hamming_weight_lut.c %}
+{% endhighlight %}
+
+Basically, lines 7 to 24 define a precomputed table mapping each possible value of a byte to its Hamming weight. I then read the input file in chunks into a buffer, and for each byte in each chunk, look up its Hamming weight in the table and accumulate that value into a variable. Notice how the chunk size (BUFSIZE) is intentionally left unefined in the code -- I'll plug the value in at compilation time.
+
+For comparison purposes, I also implemented Brian Kernighan's very elegant bit-clearing method for achieving the same purpose in the inner loop, resulting in the following code:
+
+{% highlight c linenos %}
+{% include snippets/hamming_weight_bk.c %}
+{% endhighlight %}
+
+This method iterates through each byte of the input, and clears the less significant bit in it (with the clever expression b &= b - 1) as long as the byte's value is not zero. The count of how many bits were cleared in that byte is of course its Hamming weight.
+
+Needless to say, both programs compute the exact same amount of one bits in my data sample. But let's have a look at their performances.
+
+One important lesson from Column 6 of the book is that performance can often be achieved by tuning the program at several different design levels, from high level algorithmic choices down to system-dependent code tweaks and hardware upgrades.
+
+For this problem, both programs above are in and of themselves algorithmic improvements over the naive approach of looping through all input bits. So in order to open a new front of attack, I chose to experiment with two lower-level tuning parameters: <a alt="Loop unrolling on Wikipedia" href="http://en.wikipedia.org/wiki/Loop_unrolling">loop unrolling</a> for the inner bit-counting loop, and input chunk size.
+
+I compiled and ran the first program above (which is my actual answer to the problem) using chunk sizes of 512, 1024, 4096 (my filesystem's block size), 8192 (my system's value for BUFSIZ), 12288 and 16384 bytes, with and without loop unrolling. For each test, the running time was measured three times with the shell built-in time command, the first of which on cold cache, and the other two on warm cache.
+
+The tests were conducted on a Core I3 380M notebook with 4GB RAM and using gcc 4.5.3. The compilations were made using -O2 and the loop unrolling was made with the -funroll-loops compilation parameter. I didn't tweak the chunk size of the second program, but I did measure its running time with and without loop unrolling.
+
+Let's see the results for the lookup table method:
+
+<style>
+    .test-results {
+        text-align: center;
+        border-collapse: collapse;
+        caption-side: bottom;
+    }
+
+    div.timings-wrapper {
+        position: relative;
+        left: 38%;
+    }
+
+    table.td-wrapper img.bracket {
+        float:left;
+        height: 4em;
+    }
+
+    table.td-wrapper {
+        position: relative;
+        left: 8%;
+    }
+
+    th {
+        padding: 0px 20px;
+    }
+
+    tr {
+        border: 1px solid black;
+    }
+</style>
+
+<table class="test-results standout">
+    <caption><em>Timing results for the lookup table method<em></caption>
+    <tr>
+        <th>Chunk size (bytes)</th>
+        <th>Loop unrolling</th>
+        <th>Times (seconds, real/user/sys)</th>
+    </tr>
+    <tr>
+        <td>512</td>
+        <td colspan="2">
+            <table class="td-wrapper">
+                <tr style="border-bottom: 1px solid black">
+                    <td>Yes</td>
+                    <td>
+                        <div class="timings-wrapper">
+                            <img class="bracket" src="/img/curly.jpg"/>
+                            <table>
+                                <tr><td>0m29.340s&nbsp;/0m7.138s&nbsp;/0m9.451s</td></tr>
+                                <tr><td>0m8.360s&nbsp;/0m2.750s&nbsp;/0m3.226s</td></tr>
+                                <tr><td>0m6.285s&nbsp;/0m2.631s&nbsp;/0m3.015s</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>No</td>
+                    <td>
+                        <div class="timings-wrapper">
+                            <img class="bracket" src="/img/curly.jpg"/>
+                            <table>
+                                <tr><td>0m29.654s&nbsp;/0m7.075s&nbsp;/0m10.383s</td></tr>
+                                <tr><td>0m5.697s&nbsp;/0m2.502s&nbsp;/0m3.184s</td></tr>
+                                <tr><td>0m5.636s&nbsp;/0m2.559s&nbsp;/0m3.067s</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+    <tr>
+        <td>1024</td>
+        <td colspan="2">
+            <table class="td-wrapper">
+                <tr style="border-bottom: 1px solid black">
+                    <td>Yes</td>
+                    <td>
+                        <div class="timings-wrapper">
+                            <img class="bracket" src="/img/curly.jpg"/>
+                            <table>
+                                <tr><td>0m37.643s&nbsp;/0m5.719s&nbsp;/0m4.975s</td></tr>
+                                <tr><td>0m4.230s&nbsp;/0m2.517s&nbsp;/0m1.706s</td></tr>
+                                <tr><td>0m4.162s&nbsp;/0m2.475s&nbsp;/0m1.680s</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>No</td>
+                    <td>
+                        <div class="timings-wrapper">
+                            <img class="bracket" src="/img/curly.jpg"/>
+                            <table>
+                                <tr><td>0m31.443s&nbsp;/0m6.713s&nbsp;/0m6.254s</td></tr>
+                                <tr><td>0m4.304s&nbsp;/0m2.444s&nbsp;/0m1.853s</td></tr>
+                                <tr><td>0m4.239s&nbsp;/0m2.512s&nbsp;/0m1.719s</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+    <tr>
+        <td>4096</td>
+        <td colspan="2">
+            <table class="td-wrapper">
+                <tr style="border-bottom: 1px solid black">
+                    <td>Yes</td>
+                    <td>
+                        <div class="timings-wrapper">
+                            <img class="bracket" src="/img/curly.jpg"/>
+                            <table>
+                                <tr><td>0m30.454s&nbsp;/0m6.560s&nbsp;/0m3.302s</td></tr>
+                                <tr><td>0m3.323s&nbsp;/0m2.420s&nbsp;/0m0.897s</td></tr>
+                                <tr><td>0m3.271s&nbsp;/0m2.415s&nbsp;/0m0.849s</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>No</td>
+                    <td>
+                        <div class="timings-wrapper">
+                            <img class="bracket" src="/img/curly.jpg"/>
+                            <table>
+                                <tr><td>0m30.030s&nbsp;/0m6.828s&nbsp;/0m3.726s</td></tr>
+                                <tr><td>0m3.361s&nbsp;/0m2.388s&nbsp;/0m0.966s</td></tr>
+                                <tr><td>0m3.302s&nbsp;/0m2.398s&nbsp;/0m0.899s</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+    <tr>
+        <td>8192</td>
+        <td colspan="2">
+            <table class="td-wrapper">
+                <tr style="border-bottom: 1px solid black">
+                    <td>Yes</td>
+                    <td>
+                        <div class="timings-wrapper">
+                            <img class="bracket" src="/img/curly.jpg"/>
+                            <table>
+                                <tr><td>0m29.580s&nbsp;/0m6.805s&nbsp;/0m2.963s</td></tr>
+                                <tr><td>0m3.193s&nbsp;/0m2.364s&nbsp;/0m0.822s</td></tr>
+                                <tr><td>0m3.124s&nbsp;/0m2.389s&nbsp;/0m0.729s</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>No</td>
+                    <td>
+                        <div class="timings-wrapper">
+                            <img class="bracket" src="/img/curly.jpg"/>
+                            <table>
+                                <tr><td>0m29.372s&nbsp;/0m6.784s&nbsp;/0m3.044s</td></tr>
+                                <tr><td>0m3.212s&nbsp;/0m2.430s&nbsp;/0m0.775s</td></tr>
+                                <tr><td>0m3.144s&nbsp;/0m2.410s&nbsp;/0m0.727s</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+    <tr>
+        <td>12288</td>
+        <td colspan="2">
+            <table class="td-wrapper">
+                <tr style="border-bottom: 1px solid black">
+                    <td>Yes</td>
+                    <td>
+                        <div class="timings-wrapper">
+                            <img class="bracket" src="/img/curly.jpg"/>
+                            <table>
+                                <tr><td>0m30.662s&nbsp;/0m6.507s&nbsp;/0m2.830s</td></tr>
+                                <tr><td>0m3.168s&nbsp;/0m2.412s&nbsp;/0m0.750s</td></tr>
+                                <tr><td>0m3.096s&nbsp;/0m2.406s&nbsp;/0m0.684s</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>No</td>
+                    <td>
+                        <div class="timings-wrapper">
+                            <img class="bracket" src="/img/curly.jpg"/>
+                            <table>
+                                <tr><td>0m30.096s&nbsp;/0m6.564s&nbsp;/0m2.961s</td></tr>
+                                <tr><td>0m3.149s&nbsp;/0m2.430s&nbsp;/0m0.713s</td></tr>
+                                <tr><td>0m3.091s&nbsp;/0m2.422s&nbsp;/0m0.662s</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+    <tr>
+        <td>16384</td>
+        <td colspan="2">
+            <table class="td-wrapper">
+                <tr style="border-bottom: 1px solid black">
+                    <td>Yes</td>
+                    <td>
+                        <div class="timings-wrapper">
+                            <img class="bracket" src="/img/curly.jpg"/>
+                            <table>
+                                <tr><td>0m29.446s&nbsp;/0m6.863s&nbsp;/0m2.806s</td></tr>
+                                <tr><td>0m3.145s&nbsp;/0m2.380s&nbsp;/0m0.758s</td></tr>
+                                <tr><td>0m3.076s&nbsp;/0m2.428s&nbsp;/0m0.642s</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>No</td>
+                    <td>
+                        <div class="timings-wrapper">
+                            <img class="bracket" src="/img/curly.jpg"/>
+                            <table>
+                                <tr><td>0m30.313s&nbsp;/0m6.611s&nbsp;/0m2.930s</td></tr>
+                                <tr><td>0m3.136s&nbsp;/0m2.409s&nbsp;/0m0.721s</td></tr>
+                                <tr><td>0m3.085s&nbsp;/0m2.464s&nbsp;/0m0.614s</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+For every chunk size and loop unrolling setting, the table above contains three timing values, the top one being on cold cache and the other two on warm cache.
+
+The running times were mostly the same for all cold cache runs regardless of chunk size, with the real (wall clock) time being much greater than the sum of user and system time. This indicates that the program was largely I/O bound in these runs, which is entirely expected and rules out the effects of the other optimizations.
+
+The other runs show that the timings decreases slowly but surely as the chunk size increases. While I did expect to reach optimal performance around 4096 or maybe 8192 bytes, the fact that the run times continued to decrease after that surprised me a bit. However, the timings for large chunk sizes are pretty close to one another, so the apparent decrease might be just due to system noise.
+
+Loop unrolling did not seem to affect the running times consistently. Although it was enabled on the best run overall (3.076s with chunk size of 16384 bytes), the runner-up (3.085s with the same chunk size) is only 0.009s behind.
+
+Finally, for comparison purposes, I tested the second program above, which uses chunks of size BUFSIZ (8192 for me), compiled with loop unrolling, and got the following results:
+
+<table class="test-results standout">
+    <caption><em>Timing results for the bit-clearing method<em></caption>
+    <tr>
+        <th>Chunk size (bytes)</th>
+        <th>Loop unrolling</th>
+        <th>Times (seconds, real/user/sys)</th>
+    </tr>
+    <tr>
+        <td>8192</td>
+        <td colspan="2">
+            <table class="td-wrapper">
+                <tr style="border-bottom: 1px solid black">
+                    <td>Yes</td>
+                    <td>
+                        <div class="timings-wrapper">
+                            <img class="bracket" src="/img/curly.jpg"/>
+                            <table>
+                                <tr><td>0m47.605s&nbsp;/0m44.523s&nbsp;/0m1.616s</td></tr>
+                                <tr><td>0m45.788s&nbsp;/0m44.079s&nbsp;/0m1.070s</td></tr>
+                                <tr><td>0m45.554s&nbsp;/0m44.077s&nbsp;/0m0.948s</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+Wow! This method is almost 15 times slower, and spends most of its time in user space -- it's CPU-bound even in cold cache!
+
+The lookup table method is a lot faster, likely for making good use of the system's caching mechanism and relying on fast array indexing for computing the Hamming weights of individual bytes.
