@@ -60,7 +60,7 @@ p {
 
 #sidebar {
     float: right;
-    width: 19%;
+    width: 19.2%;
     padding-top: 10px;
 }
 
@@ -78,7 +78,7 @@ p {
 }
 
 #sidebar p {
-    padding-right: 2px;
+    padding-right: 1em;
 }
 
 #sidebar ol li {
