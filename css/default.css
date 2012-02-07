@@ -20,6 +20,10 @@ a:visited {
     color: gray;
 }
 
+p {
+    text-align: justify;
+}
+
 .layout-element {
     background-color: #eae7df;
 }
