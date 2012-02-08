@@ -117,6 +117,7 @@ p {
 
 #content .highlight {
     overflow: auto;
+    margin-right: 30%;
 }
 
 #content .lineno {
