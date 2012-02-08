@@ -270,7 +270,7 @@ The other runs show that the timings decreases slowly but surely as the chunk si
 
 Loop unrolling did not seem to affect the running times consistently. Although it was enabled on the best run overall (3.076s with chunk size of 16384 bytes), the runner-up (3.085s with the same chunk size) is only 0.009s behind.
 
-Finally, for comparison purposes, I tested the second program above, which uses chunks of size BUFSIZ (8192 for me), compiled with loop unrolling, and got the following results:
+Finally, for comparison purposes, I timed the second program above, which employs the bit-clearing method and uses chunks of size BUFSIZ (8192 for me), compiled with loop unrolling, and got the following results:
 
 <div class="test-results-wrapper standout">
     <table class="test-results">
