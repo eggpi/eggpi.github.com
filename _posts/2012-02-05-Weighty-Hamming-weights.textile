@@ -4,7 +4,7 @@ title: Weighty Hamming weights
 tags: [algorithms, optimization, hamming weight, bit hack]
 ---
 
-I recently got myself a copy of Jon Bentley's <a alt="Programming Pearls on Amazon" href="http://www.amazon.com/Programming-Pearls-2nd-Jon-Bentley/dp/0201657880/">Programming Pearls</a>, which I will review in an upcoming post. It's been quite an instructive reading, and I've been trying hard to pace myself, understanding the examples and working out some of the problems at the end of each Column without rushing through the pages.
+I recently got myself a copy of Jon Bentley's <a alt="Programming Pearls on Amazon" href="http://www.amazon.com/Programming-Pearls-2nd-Jon-Bentley/dp/0201657880/">Programming Pearls</a>. It's been quite an instructive reading, and I've been trying hard to pace myself, understanding the examples and working out some of the problems at the end of each Column without rushing through the pages.
 
 Having just finished Part II of the book, which overviews several interesting principles for improving the performance of a program, from choice of algorithms and data structures to low-level code tuning, I thought I'd try to apply some of these concepts in a thorough resolution of a proposed problem.
 
