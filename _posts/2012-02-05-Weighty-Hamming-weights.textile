@@ -42,7 +42,7 @@ One important lesson from Column 6 of the book is that performance can often be 
 
 For this problem, both programs above are in and of themselves algorithmic improvements over the naive approach of looping through all input bits. So in order to open a new front of attack, I chose to experiment with two lower-level tuning parameters: <a alt="Loop unrolling on Wikipedia" href="http://en.wikipedia.org/wiki/Loop_unrolling">loop unrolling</a> for the inner bit-counting loop, and input chunk size.
 
-I compiled and ran the first program above (which is my actual answer to the problem) using chunk sizes of 512, 1024, 4096 (my filesystem's block size), 8192 (my system's value for BUFSIZ), 12288 and 16384 bytes, with and without loop unrolling. For each test, the running time was measured three times with the shell built-in time command, the first of which on cold cache, and the other two on warm cache.
+I compiled and ran the first program above using chunk sizes of 512, 1024, 4096 (my filesystem's block size), 8192 (my system's value for BUFSIZ), 12288 and 16384 bytes, with and without loop unrolling. For each test, the running time was measured three times with the shell built-in time command, the first of which on cold cache, and the other two on warm cache.
 
 The tests were conducted on a Core I3 380M notebook with 4GB RAM and using gcc 4.5.3. The compilations were made using -O2 and the loop unrolling was made with the -funroll-loops compilation parameter. I didn't tweak the chunk size of the second program, but I did measure its running time with and without loop unrolling.
 
