@@ -20,7 +20,7 @@ The Hamming weight of a binary string may play an important role in applications
 
 There are known and obscure techniques for making such calculation. In particular, the thread <a alt="Best algorithm to count the number of set bits in a 32 bit integer" href="http://stackoverflow.com/questions/109023/best-algorithm-to-count-the-number-of-set-bits-in-a-32-bit-integer">Best algorithm to count the number of set bits in a 32-bit integer</a> on Stack Overflow abounds with solutions for strings of 32 bits.
 
-I approached the problem by first creating a 2.8Gib file of random bits to serve as input for my algorithms. Then, I attempted to solve the problem by using a lookup table of bit counts so as to avoid having to iterate through each of the input bits and maybe take advantage of caching for the lookup table. This is the resulting C code:
+I approached the problem by first creating a 2.8Gib file of random bits to serve as input for my algorithms. Then, I devised a solution using a lookup table of bit counts so as to avoid having to iterate through each of the input bits and maybe take advantage of caching for the lookup table. This is the resulting C code:
 
 {% highlight c linenos %}
 {% include snippets/hamming_weight_lut.c %}
