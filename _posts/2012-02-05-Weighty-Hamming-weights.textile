@@ -298,7 +298,5 @@ Wow! This method is almost 15 times slower, and spends most of its time in user 
 
 The lookup table method is a lot faster, likely for making good use of the system's caching mechanism and relying on fast array indexing for computing the Hamming weights of individual bytes.
 
-<em>Update (09/02/2012)</em>: Experimenting with different data types for the
-bit buffer also gives interesting results. Replacing the array of unsigned chars
-with an array of unsigned longs (whose size matches the word size for my machine) reduces the timings for the bit-counting method to 14.425s on warm cache, of which 13.706s are spent in user space.
+<em>Update (09/02/2012)</em>: Experimenting with different data types for the bit buffer also gives interesting results. Replacing the array of unsigned chars with an array of unsigned longs (whose size matches the word size for my machine) reduces the timings for the bit-counting method to 14.425s on warm cache, of which 13.706s are spent in user space.
 
