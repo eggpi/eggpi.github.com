@@ -177,3 +177,8 @@ p {
 #comments {
     display: none;
 }
+
+#comments-toggle {
+    display: block;
+    margin-bottom: 0.8em;
+}
