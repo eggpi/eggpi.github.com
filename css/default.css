@@ -182,3 +182,7 @@ p {
     display: block;
     margin-bottom: 0.8em;
 }
+
+.follow {
+    height: 15px;
+}
