@@ -13,7 +13,7 @@
     {% for post in site.posts limit:20 %}
     <entry>
         <title>{{ post.title }}</title>
-        <link href="http://guilherme-pg.com/{{ post.url }}/"/>
+        <link href="http://guilherme-pg.com{{ post.url }}"/>
         <updated>{{ post.date | date_to_xmlschema }}</updated>
         <id>http://guilherme-pg.com{{ post.id }}/</id>
         {% assign paragraphs = post.content | split:"\n" %}
