@@ -8,6 +8,8 @@ In the <a href="/2011/06/26/On-to-the-client-side.html" title="On to the client 
 
 Things have progressed quite a bit since then, but unfortunately that part of the project is nowhere near ready (nor will it be by the end of GSoC, which is right around the corner). Anyway, I thought I'd share a bit of what I've been working on during the past weeks of coding.
 
+<!-- RSS summary end -->
+
 The lower level of what we have in mind for the client side is complete and somewhat solid. This means it is possible for clients to pass messages and replies around reliably, using the server as a bridge. The plan now is to use that capability to model the Service Client functionality.
 
 As a demonstration/proof-of-concept, we decided to brush up the very first two service clients that were conceived, <em>sumclient</em> and <em>sumservice</em>, and add them to the xmms2-tutorials submodule as <a href="http://github.com/guilherme-pg/xmms2-tutorial/blob/master/c/tut9.c" title="tut9">tut9</a> and <a href="http://github.com/guilherme-pg/xmms2-tutorial/blob/master/c/tut10.c" title="tut10">tut10</a>.

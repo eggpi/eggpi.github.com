@@ -10,6 +10,8 @@ It is with that spirit that, once I learned that a few friends of mine (the geek
 
 Not a useful bot. Not even a smart bot. Just a funny bot.
 
+<!-- RSS summary end -->
+
 To me, creating an IRC bot sounds like one of these things every hacker must absolutely do once, so the task was somewhat charmful. And as with almost every other pet project/prototype of mine, I decided to use Python for extra coolness.
 
 After a little research, I came across <a href="http://python-irclib.sourceforge.net/" title="python-irclib">python-irclib</a>, which provides a framework for developing IRC bots. Yay, just what I needed, specially since I had spent most of the afternoon of the previous day just to get to know the IRC protocol and hand-code a vegetative-state bot that was pretty much only capable of keeping itself alive by replying to PINGs from the server. Lesson learned for code reuse.

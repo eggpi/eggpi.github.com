@@ -14,6 +14,8 @@ The problem in question is the 7th of Column 9, which asks:
 Given a very long sequence (say, billions or trillions) of bytes, how would you efficiently count the total number of one bits? (That is, how many bits are turned on in the entire sequence?)
 </blockquote>
 
+<!-- RSS summary end -->
+
 The count of one bits in a binary string is known as its <a alt="Hamming weight on Wikipedia" href="http://en.wikipedia.org/wiki/Hamming_weight">Hamming weight</a>, so the problem could also be stated as requiring the Hamming weight of a big string of bits.
 
 The Hamming weight of a binary string may play an important role in applications in which each bit encodes information about a distinct entity, and one wishes to count entities with a given property. For instance, given a filesystem bitmap which encodes used and free blocks as zero and one bits, respectively, the Hamming distance can be used to calculate the amount of free disk space.

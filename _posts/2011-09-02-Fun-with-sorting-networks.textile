@@ -12,6 +12,8 @@ Experience shows that we can often sort elements a lot faster if we have some ex
 
 And indeed some very interesting techniques were elicited in the replies to that thread. However, one of them struck me for its simplicity and sheer speed: using a sorting network. This turned out to be faster than the generic solutions (such as insertion sort) that were posted as replies, according to the original poster's tests.
 
+<!-- RSS summary end -->
+
 A brief explanation on that solution: <a title="Sorting networks" href="http://en.wikipedia.org/wiki/Sorting_networks">sorting networks</a> are abstract representations of the comparisons and swaps used to sort a fixed number of integers. They are often schematized as circuits in which input wires carry the values through pairwise compare-and-swap gates.
 
 <table class="img-wrap standout">

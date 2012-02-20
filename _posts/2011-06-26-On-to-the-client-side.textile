@@ -8,6 +8,8 @@ Now that the server side of the Service Clients implementation has taken shape, 
 
 The basic idea is that, now that the server is capable of dumbly passing messages and replies among clients, we can use that capability to model the actual Service Client functionality on the client-side. In other words, we want the clients to establish a protocol for remote procedure calls and introspection with the server, unaware of what is really going on, simply forwarding messages and replies back and forth between clients.
 
+<!-- RSS summary end -->
+
 Our plan for the actual implementation will require, as expected, changes to libxmmsclient, but also the development of a new library, so far called libxmmsclient-sc. The new functionality added to libxmmsclient will merely facilitate message exchanging between clients, while the actual Service Client sugar will be laid on top of that in libxmmsclient-sc.
 
 We already had some sketches for the client side of the implementation, most notably <a href="http://2af7060654a0a0b9.paste.se/" title="sketch by nesciens">this one</a> by nesciens, which gives a pretty good idea of where we are headed. Last week I published a <a href="http://pastebin.com/MZ5p0Hae" title="sketch by guilherme_pg">sketch of my own</a>, with an updated and slightly more concrete view of the implementation details now that we know what the server is capable of. It also contained a few more ideas.

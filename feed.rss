@@ -16,10 +16,21 @@ base_url: http://guilherme-pg.com
         <title>{{ post.title }}</title>
         <link href="{{ page.base_url }}{{ post.url }}"/>
         <updated>{{ post.date | date_to_xmlschema }}</updated>
-        {% assign paragraphs = post.content | split:"\n" %}
         <id>{{ page.base_url }}{{ post.id }}/</id>
         <summary type="html">
-        {% for p in paragraphs limit:2 %}{{ p | xml_escape }}{% endfor %}
+        {% assign seen_summary_mark = false %}
+        {% assign paragraphs = post.content | split:"\n" %}
+        {% for p in paragraphs %}
+            {% capture stripped %}{{ p | strip_newlines }}{% endcapture %}
+            {% if stripped == '<p><!-- RSS summary end --></p>' %}
+                {% assign seen_summary_mark = true %}
+            {% endif %}
+
+            {% if seen_summary_mark == false %}{{ p | xml_escape }}{% endif %}
+        {% endfor %}
+
+        {% capture continue %}<em>...keep reading at <a href="{{ page.base_url }}{{ post.url }}">{{ post.title }}</a></em>{% endcapture %}
+        {{ continue | xml_escape }}
         </summary>
     </entry>
     {% endfor %}

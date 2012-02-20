@@ -6,6 +6,8 @@ tags: [GSoC 2011, xmms2]
 
 It's been two weeks since I began coding for GSoC, and it's time to share some of the progress we've made. For the anxious: the courier object, as described in the last post, is already crawling on its own. I have implemented and briefly tested both methods described in the wiki, as well as a few other features to ipc.c and GenIPC.
 
+<!-- RSS summary end -->
+
 My first attempt at implementing the courier object was to expose some data structures from ipc.c to courier.c and let the latter manipulate them at will. After discussing this design with the community, we settled for hiding these data structures and only exposing through new functions the bare minimum necessary for the courier to operate.
 
 That is how <a href="http://github.com/guilherme-pg/xmms2-guilherme/commit/da69cca656f036c23dc37b78a35e094d61c1ac30">this commit</a> came to be. Since some of the new functions are mere copies of code that already existed elsewhere in the same file, they could be used instead of that code. I should add "cleaning up ipc.c" to my TODO list.

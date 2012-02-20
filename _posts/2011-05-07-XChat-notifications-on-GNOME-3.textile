@@ -17,6 +17,8 @@ It did work, but:
 
 For every message sent, not only a balloon would pop up and vanish after a few seconds, but also an icon would persist in the notification panel. The notification panel would shortly be cluttered by lots of useless icons. (Ok, so this screenshot is actually me reproducing the problem manually, and not XChat causing it, but you get the idea).
 
+<!-- RSS summary end -->
+
 Looking up the problem a bit, I found out that it <a href="http://bugzilla.redhat.com/show_bug.cgi?id=693207">had happened before</a>, and could be solved by simply spawning the notification balloon with the appropriate parameters (namely, with a new <em>transient</em> hint set).
 
 So, by grepping the XChat 2.8.8 source code for <em>notify-send</em>, I eventually reached the file where the magic happens, <a href="http://xchat.svn.sourceforge.net/viewvc/xchat/src/fe-gtk/plugin-tray.c?view=markup&amp;pathrev=1453">which looked somewhat like this</a>.

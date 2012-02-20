@@ -14,6 +14,8 @@ which is to say, state machines can be expressed as concisely and elegantly thro
 
 Now, coroutines you say?
 
+<!-- RSS summary end -->
+
 To quote from the Wikipedia entry:
 
 <blockquote>

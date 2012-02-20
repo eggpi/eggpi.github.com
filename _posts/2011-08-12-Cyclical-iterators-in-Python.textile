@@ -15,6 +15,8 @@ The technique consists in defining an iterator as a function of itself, thus mak
 
 Bear with me, I'll explain in a moment.
 
+<!-- RSS summary end -->
+
 Cyclical iterators can be quite useful when defining infinite iterators for recursive sequences. The problem solved by the recipe (generating <a href="http://en.wikipedia.org/wiki/Regular_number" title="Regular Numbers on Wikipedia">5-smooth numbers</a>) has this very recursive notion, in the sense that, given a set of these numbers, mutiplying each by 2, 3 and 5 yields a larger set of such numbers.
 
 Or, to explore the inductive side of the problem, given an iterator for the first n 5-smooth numbers, you can define a larger iterator for 5-smooth numbers by exhausting the first one and multiplying each number it outputs by 2, 3 and 5 (and eliminating duplicates).

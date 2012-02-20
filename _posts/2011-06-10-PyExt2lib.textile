@@ -8,6 +8,8 @@ I pushed a new project to Github about a week ago: <a href="http://github.com/gu
 
 The motivation for this project and the story behind it are quite interesting, so I though I would share them.
 
+<!-- RSS summary end -->
+
 It all started with an Operating Systems class assignment in which the students (divided into pairs) were supposed to develop a tool to extract some information from filesystems, such as sizes of segments of contiguous free blocks and sizes of blocks allocated per inode, and display some of that information as histograms.
 
 No one in the class had ever come close to doing anything related, so we all started looking into how to implement that. Some attempted to use the Virtual File System layer in the kernel to no avail, while others looked up how other tools, such as dumpe2fs, did it, and came up with the idea of using ext2lib.

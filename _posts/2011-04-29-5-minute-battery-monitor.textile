@@ -10,6 +10,8 @@ Having no battery monitor installed and being unable to install one, I was cluel
 
 So I did the best I could at the time: <del>shut down the notebook</del> hacked together a very simple battery monitor by parsing the contents of <code>/proc/acpi/battery/BAT0/state</code> and <code>/proc/acpi/battery/BAT0/info</code>.
 
+<!-- RSS summary end -->
+
 And here it is, too pointless for Github, and too useful for oblivion:
 
 {% highlight bash linenos %}
