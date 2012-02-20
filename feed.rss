@@ -1,11 +1,12 @@
 ---
+base_url: http://guilherme-pg.com
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title type="text" xml:lang="en">might as well hack it</title>
-    <link type="application/atom+xml" href="http://guilherme-pg.com/" rel="self"/>
+    <link type="application/atom+xml" href="{{ page.base_url }}" rel="self"/>
     <updated>{{ site.time | date_to_xmlschema }}</updated>
-    <id>http://guilherme-pg.com</id>
+    <id>{{ page.base_url }}</id>
     <author>
         <name>Guilherme P. Gonçalves</name>
     </author>
@@ -13,10 +14,10 @@
     {% for post in site.posts limit:20 %}
     <entry>
         <title>{{ post.title }}</title>
-        <link href="http://guilherme-pg.com{{ post.url }}"/>
+        <link href="{{ page.base_url }}{{ post.url }}"/>
         <updated>{{ post.date | date_to_xmlschema }}</updated>
-        <id>http://guilherme-pg.com{{ post.id }}/</id>
         {% assign paragraphs = post.content | split:"\n" %}
+        <id>{{ page.base_url }}{{ post.id }}/</id>
         <summary type="html">
         {% for p in paragraphs limit:2 %}{{ p | xml_escape }}{% endfor %}
         </summary>
