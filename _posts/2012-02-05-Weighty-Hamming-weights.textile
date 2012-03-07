@@ -18,7 +18,7 @@ Given a very long sequence (say, billions or trillions) of bytes, how would you 
 
 The count of one bits in a binary string is known as its <a alt="Hamming weight on Wikipedia" href="http://en.wikipedia.org/wiki/Hamming_weight">Hamming weight</a>, so the problem could also be stated as requiring the Hamming weight of a big string of bits.
 
-The Hamming weight of a binary string may play an important role in applications in which each bit encodes information about a distinct entity, and one wishes to count entities with a given property. For instance, given a filesystem bitmap which encodes used and free blocks as zero and one bits, respectively, the Hamming distance can be used to calculate the amount of free disk space.
+The Hamming weight of a binary string may play an important role in applications in which each bit encodes information about a distinct entity, and one wishes to count entities with a given property. For instance, given a filesystem bitmap which encodes used and free blocks as zero and one bits, respectively, the Hamming weight can be used to calculate the amount of free disk space.
 
 There are known and obscure techniques for making such calculation. In particular, the thread <a alt="Best algorithm to count the number of set bits in a 32 bit integer" href="http://stackoverflow.com/questions/109023/best-algorithm-to-count-the-number-of-set-bits-in-a-32-bit-integer">Best algorithm to count the number of set bits in a 32-bit integer</a> on Stack Overflow abounds with solutions for strings of 32 bits.
 
