@@ -1,0 +1,51 @@
+---
+layout: default
+title: Highlights from PyCon US 2012 lecture videos (part 1)
+tags: [python, pycon2012]
+---
+
+This year's <a href="http://us.pycon.org" title="PyCon US">PyCon US</a>, the "largest annual gathering for the community using and developing the open-source Python programming language", as the event's website puts it, featured a wide range of interesting presentations directed to people with varying degrees of familiarity with language and associated technologies.
+
+The videos for the lectures were released online a couple of days ago, so having not been able to witness the presentations first-hand, I decided to watch and comment some of those that caught my attention. And it was definitely worthwile!
+
+<!-- RSS summary end -->
+
+I'll split this into a series of posts, as there is quite a bit of material to be covered.
+
+Let's start with a couple of introductory lectures and an intermediate one. The lecture titles are links to the actual videos, be sure to check them out.
+
+<h3><a href="http://pyvideo.org/video/639/introduction-to-pdb" title="Introduction to PDB">Introduction to PDB</a></h3>
+
+Chris McDonough gives an introductory talk on PDB, the Python Debugger.
+
+Lots of people aren't really used to the idea of a specialized tool for debugging Python code: it sometimes just sounds a lot easier to sprinkle log or print statements all around the code to track its execution and state.
+
+While this approach can be perfectly valid in some scenarios, a debugger generally provides much more powerful tools that can make a difference when tackling a really elusive bug.
+
+This lecture teaches the basics of PDB, a resourceful Python debugger that shares many features with good old GDB, the GNU Debugger. It would be very nice for every Python programmer to at least learn the basics of PDB, if only to consider sprinkling the following snippet instead of print statements in their code:
+
+{% highlight python linenos %}
+{% include snippets/pdb_set_trace.py %}
+{% endhighlight %}
+
+<h3><a href="http://pyvideo.org/video/629/a-noob-speaks-to-noobs-your-first-site-in-the-cl" title="A noob speaks to noobs: your first site in the cloud">A noob speaks to noobs: your first site in the cloud</a></h3>
+
+Katie Cuningham, a Python and Django developer with zero sysadmin background, tells the tale of her first incursions into hosting a few personal sites in the cloud.
+
+An entertaining talk by a charismatic speaker, and although I didn't find her advice to be really essential, it was nice to learn about her use of <a href="http://docs.fabfile.org/en/1.4.0/index.html" title="Fabric">Fabric</a>, a promising project I hadn't known before.
+
+<h3><a href="http://pyvideo.org/video/613/python-epiphanies" title="Python epiphanies">Python epiphanies</a></h3>
+
+Stuart Williams gives a lecture targeted at software developers with a background in statically typed languages and some experience with Python aiming to clarify some common pitfalls and seemingly counterintuitive behavior in the language.
+
+Even though it is targeted at intermediate level developers, beginners might benefit from the fact that the lecture starts slowly and builds on basic concepts like the oppositions between variables (as in little boxes that contain values) versus namespaces (which map names to objects), global versus local scope and mutable versus immutable objects.
+
+The second half of the lecture picks up speed and briefly visits decorators before plunging into (meta) classes. The distinctions between classes and objects and bound and unbound methods are carefully explained with plenty of examples. Definitely worth watching if you're not entirely sure why the following snippet prints 4 and 6 before crashing with a TypeError:
+
+{% highlight python linenos %}
+{% include snippets/bound_unbound.py %}
+{% endhighlight %}
+
+Finally, the talk discusses iterators, generators and the mechanics behind for loops (consider watching if the name "StopIteration" doesn't ring a bell) and closes with two cute examples of how dicts may be used to blur the line between code and data.
+
+And that's it for the first part. I still have a few lectures in the watch queue, which is certainly enough for a couple more installments of this series, so check back often!
