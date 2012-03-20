@@ -4,7 +4,7 @@ title: Highlights from PyCon US 2012 lecture videos (part 1)
 tags: [python, pycon2012]
 ---
 
-This year's <a href="http://us.pycon.org" title="PyCon US">PyCon US</a>, the "largest annual gathering for the community using and developing the open-source Python programming language", as the event's website puts it, featured a wide range of interesting presentations directed to people with varying degrees of familiarity with language and associated technologies.
+This year's "PyCon US (PyCon US)":http://us.pycon.org, the "largest annual gathering for the community using and developing the open-source Python programming language", as the event's website puts it, featured a wide range of interesting presentations directed to people with varying degrees of familiarity with language and associated technologies.
 
 The videos for the lectures were released online a couple of days ago, so having not been able to witness the presentations first-hand, I decided to watch and comment some of those that caught my attention. And it was definitely worthwile!
 
@@ -14,7 +14,7 @@ I'll split this into a series of posts, as there is quite a bit of material to b
 
 Let's start with a couple of introductory lectures and an intermediate one. The lecture titles are links to the actual videos, be sure to check them out.
 
-<h3><a target="_blank" href="https://www.youtube.com/watch?v=vfPtGsSJldg" title="Introduction to PDB">Introduction to PDB</a></h3>
+h3. "Introduction to PDB":https://www.youtube.com/watch?v=vfPtGsSJldg
 
 Chris McDonough gives an introductory talk on PDB, the Python Debugger.
 
@@ -28,13 +28,13 @@ This lecture teaches the basics of PDB, a resourceful Python debugger that share
 {% include snippets/pdb_set_trace.py %}
 {% endhighlight %}
 
-<h3><a target="_blank" href="https://www.youtube.com/watch?v=hyzPYaAmVOc" title="A noob speaks to noobs: your first site in the cloud">A noob speaks to noobs: your first site in the cloud</a></h3>
+h3. "A noob speaks to noobs: your first site in the cloud":https://www.youtube.com/watch?v=hyzPYaAmVOc
 
 Katie Cuningham, a Python and Django developer with zero sysadmin background, tells the tale of her first incursions into hosting a few personal sites in the cloud.
 
 An entertaining talk by a charismatic speaker, and although I didn't find her advice to be really essential, it was nice to learn about her use of <a href="http://docs.fabfile.org/en/1.4.0/index.html" title="Fabric">Fabric</a>, a promising project I hadn't known before.
 
-<h3><a target="_blank" href="https://www.youtube.com/watch?v=Pi9NpxAvYSs" title="Python epiphanies">Python epiphanies</a></h3>
+h3. "Python epiphanies":https://www.youtube.com/watch?v=Pi9NpxAvYSs
 
 Stuart Williams gives a lecture targeted at software developers with a background in statically typed languages and some experience with Python aiming to clarify some common pitfalls and seemingly counterintuitive behavior in the language.
 
