@@ -42,6 +42,10 @@ p {
     padding: 10px 40px;
 }
 
+#header h2 {
+    font-style: italic;
+}
+
 #topbar {
     background-color: black;
     padding-left: 30px;
