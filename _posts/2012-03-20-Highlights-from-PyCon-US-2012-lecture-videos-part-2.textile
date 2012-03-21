@@ -1,0 +1,45 @@
+---
+layout: default
+title: Highlights from PyCon US 2012 lecture videos (part 2)
+tags: [python, pycon2012]
+---
+
+Time for the final round of talks from PyCon 2012!
+
+In case you missed it, in the "first":/2012/03/11/Highlights-from-PyCon-US-2012-lecture-videos.html of this series of posts I talked about an introductory lecture on PDB, the Python debugger, a cloud hosting 101 from a noob to noobs, and a two and a half-hour demystification of some often misunderstood behavior of the Python programming language.
+
+<!-- RSS summary end -->
+
+h3. "Graph processing in Python":https://www.youtube.com/watch?v=Mv3xgBQJPaE
+
+Van Lindberg presents a lecture on applied graph theory disguised as a Python lecture. But don't think that's bad at all!
+
+The lecture consists of three studies on how graphs can model and help analyze the Python community and development process, with interesting results.
+
+First, the python-dev mailing list is modeled using a directed graph in which there's an edge between two people if one replied to a topic by the other. Using the concept of vertex <a target="_blank" href="https://www.youtube.com/watch?v=Mv3xgBQJPaE" title="Centrality on Wikipedia">centrality</a> to model activity, the top three contributors to the mailing list are elicited. Interestingly, although the graph clearly shows a central core of active contributors, it contains no <a target="_blank" href="https://en.wikipedia.org/wiki/Clique_%28graph_theory%29" title="Clique on Wikipedia">cliques</a>, that is, no group of people always interact with each other.
+
+Then, a graph is used to correlate people in the mailing list with their topics of interest. Finally, another graph tracks down the different licenses used in the Python code base.
+
+I may be biased due to the fact that I happen to like graph theory, but I definitely enjoyed watching this. On the Python front, I learned a bit about "NetworkX":http://networkx.lanl.gov, an impressive package for graph manipulation and analysis.
+
+h3. "Stepping through CPython":https://www.youtube.com/watch?v=XGF3Qu4dUqk
+
+Larry Hastings gives an "architectural sightseeing" of the internals of CPython, the reference implementation of Python, which promises to get the audience started on the path to becoming a core developer.
+
+As the presenter himself puts it, this talk is more about "running" than "stepping" through CPython due to lack of time. It glosses over several architectural aspects of CPython, from the directory structure in the source code to the bytecode interpreter, through the custom memory allocator and internal object protocols, though never with quite enough information to make them digestible for those with no previous contact with the implementation.
+
+Even so, I'd recommend following this lecture closely while browsing the CPython source code for those interested in what happens under the hood. Just make sure you use ctags or similar to keep up with the fast pace in this lecture.
+
+As a curiosity, did you know CPython uses <a target="_blank" href="https://en.wikipedia.org/wiki/Computed_goto#Assigned_GOTO" title="Computed goto on Wikipedia">gcc's computed goto extension</a> where available when interpreting bytecodes?
+
+h3. "Fake it til you make it unit testing patterns with mocks and fakes":https://www.youtube.com/watch?v=hvPYuqzTPIk
+
+An overview of several techinques and tools for "unit testing":https://en.wikipedia.org/wiki/Unit_testing Python code by Brian K. Jones. While aiming for an audience with intermediate familiarity with the programming language, this talk assumes little prior experience with testing techniques. Which is great -- testing and validation are areas I (still) know little about.
+
+This turned out to be a very enlightening talk in which you may learn a few general guidelines for writing testable code, such as creating wrapper classes around external resources and libraries so they can be easily mocked during testing, and also see a couple of real life applications of that knowledge.
+
+An interesting Python-specific technique I gathered from this talk is resorting to "monkey patching":https://en.wikipedia.org/wiki/Monkey_patching, that is, run-time modification of live objects and classes, which is made very easy by the language, to mock specific subsystems while testing. This, if used sparingly, turns out to be a Pythonic replacement for "dependency injection":https://en.wikipedia.org/wiki/Dependency_injection.
+
+The talk also promotes the use of some very interesting tools, such as "coverage":http://nedbatchelder.com/code/coverage/ for measuring code coverage, and "mock":http://mock.readthedocs.org/en/latest/index.html, which is even "making its way into the standard library":http://www.python.org/dev/peps/pep-0417/ in the Python 3 series as I write this.
+
+And that's it for now! There are, of course, several other lectures available (check "pyvideo.org":pyvideo.org for that), and I'll probably watch a few more some time in the future. Let me know if I missed an important one!
