@@ -32,7 +32,7 @@ Even so, I'd recommend following this lecture closely while browsing the CPython
 
 As a curiosity, did you know CPython uses <a target="_blank" href="https://en.wikipedia.org/wiki/Computed_goto#Assigned_GOTO" title="Computed goto on Wikipedia">gcc's computed goto extension</a> where available when interpreting bytecodes?
 
-h3. "Fake it til you make it unit testing patterns with mocks and fakes":https://www.youtube.com/watch?v=hvPYuqzTPIk
+h3. "Fake it til you make it: unit testing patterns with mocks and fakes":https://www.youtube.com/watch?v=hvPYuqzTPIk
 
 An overview of several techinques and tools for "unit testing":https://en.wikipedia.org/wiki/Unit_testing Python code by Brian K. Jones. While aiming for an audience with intermediate familiarity with the programming language, this talk assumes little prior experience with testing techniques. Which is great -- testing and validation are areas I (still) know little about.
 
