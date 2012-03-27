@@ -1,0 +1,68 @@
+---
+layout: default
+title: Sorting networks revisited
+tags: [sorting networks, algorithms, sorting]
+---
+
+It's been a few months since I made a brief and practical incursion into "sorting networks":/2011/09/02/Fun-with-sorting-networks.html. Little did I know at the time how rich and interesting is the theory behind those clever constructs.
+
+Fast-forward to present date and I just came across two rich resources for learning the theory that drives sorting networks: Robert Sedgewick's "Algorithms in C":http://www.amazon.com/Algorithms-Parts-1-4-Fundamentals-Structures/dp/0201314525/ref=sr_1_1?ie=UTF8&qid=1332856241&sr=8-1 and (wait for it) Don Knuth's "The Art of Computer Programming":http://www.amazon.com/Computer-Programming-Volumes-1-4A-Boxed/dp/0321751043/ref=sr_1_1?s=books&ie=UTF8&qid=1332856265&sr=1-1. Upon revisit, the "Wikipedia article":https://en.wikipedia.org/wiki/Sorting_network seems to have evolved quite a bit as well.
+
+So it is time to stand on the shoulders of giants and take another look at sorting networks, this time from a more theoretical standpoint. This post is by no means intended as a complete resource for this theory -- rather, I'm just pointing out some interesting facts about sorting networks that either helped me understand their working or just made me mumble "cool!" as I learned them.
+
+<!-- RSS summary end -->
+
+Let's start with a quick recap: sorting networks are representations of sorting algorithms using a network of interconnected compare-and-swap gates.
+
+For example, consider the task of sorting an array of three integers, A[1..3]. One possible way of sorting this array would be to follow the procedure below:
+
+{% highlight bash %}
+if A[2] > A[3]:
+    swap A[2] and A[2]
+if A[1] > A[3]:
+    swap A[1] and A[3]
+if A[1] > A[2]:
+    swap A[1] and A[2]
+{% endhighlight %}
+
+This algorithm can be represented (and implemented in hardware) as a network of compare-and-swap gates like the one below:
+
+<table class="img-wrap standout">
+    <tr><td><img alt="A sorting network for three elements" src="/img/sorting-network-3.png" title="A sorting network for three elements" /></td></tr>
+    <tr><td class="img-caption">-- A sorting network for three elements</td><tr>
+</table>
+
+In the image, the horizontal lines represent wires that serve as input and output to compare-and-swap gates, the vertical lines. The upper output of a compare-and-swap gate is the smallest of its inputs, and the bottom output wire receives the largest of its inputs. The network is read left to right, and by the end the elements in A are sorted in nondecreasing order.
+
+Notice how the comparisons made by the algorithm above are the same regardless of what the input sequence looks like, that is, the sequence of comparisons is "oblivious", as Knuth puts it. This algorithm is thus what Sedgewick calls a "nonadaptive algorithm" in the definition I quote below:
+
+bq. A nonadaptive sorting algorithm is one where the sequence of operations performed depends only on the number of inputs, rather than on the values of the keys.
+
+Sorting networks have the interesting property of low-level parallelism: gates that don't operate on the same inputs can often work in parallel. The efficiency of a sorting network can then be defined either in terms of its depth, the number of comparators in the longest path from an input to an output, or in terms of the number of comparator gates used to build it.
+
+But how can we make a sorting network?
+
+Other than devising them through logic (which doesn't really gets me further than very small n), there are more systematic methods and heuristics. Knuth even shows in his book a sorting network for 13 elements obtained from a genetic algorithm which "bears no rhyme or reason, but it works -- and it's shorter than any other construction devised so far by human ratiocination".
+
+Interestingly, we can often adapt a known algorithm to use only _cmpexch(x, y)_ instructions, which are functionally equivalent to the gates in the network above, and then translate it into a sorting network.
+
+For a recursive example, let's assume we already have a sorting network for n elements, and we want to build a sorting network for n+1 elements. One valid strategy would be to sort the n first elements with the network we already have, then insert the last element into its place, like so:
+
+<table class="img-wrap standout">
+    <tr><td><img style="height: 400px" alt="Insertion sorting network" src="https://upload.wikimedia.org/wikipedia/en/thumb/6/66/Recursive-insertion-sorting-network.svg/576px-Recursive-insertion-sorting-network.svg.png" title="Insertion sorting network" /></td></tr>
+    <tr><td class="img-caption">-- Insertion sorting network</td><tr>
+</table>
+
+This strategy, as you probably have noticed, is analogous to that of "insertion sort":https://en.wikipedia.org/wiki/Insertion_sort. The same transformation can be made with "bubble sort":https://en.wikipedia.org/wiki/Bubble_sort, and perhaps surprisingly, the parallel versions of the networks for both algorithms are exactly the same!
+
+But the real breakthrough is due to Ken Batcher, who devised a recursive _merge_ routine using _cmpexch_ instructions that made it possible to express "merge sort":https://en.wikipedia.org/wiki/Mergesort as a sorting network. The result is far from trivial and best explained by Knuth. The Wikipedia article "Batcher's odd-even mergesort":https://en.wikipedia.org/wiki/Odd-even_mergesort contains an implementation in Python. This algorithm uses O(n log²n) comparators for n elements, which is not optimal, but generally good enough, especially since faster alternatives hide large constants behind the asymptotic notation and are mainly of academic interest.
+
+Finally, given a sorting network, how can we prove it is correct? Recall that the comparisons made by a sorting network are independent of the nature of the input, which may make it hard for us to argue it works. It would appear that we would need to test the network against all n! possible permutations of n input elements.
+
+However, there is a better way. The simpler method uses the zero-one principle, quoted below from Sedgewick:
+
+bq. Zero-One Principle: If a nonadaptive algorithm produces sorted output when the inputs are all either 0 or 1, then it does so when the inputs are arbitrary keys.
+
+The proof for the theorem above is quite simple. A proof by contradiction can be found "here":http://serverbob.3x.ro/IA/DDU0170.html, and Knuth gives an analogous proof by contrapositive.
+
+So we only really need to test the network using the 2^n possible strings of n bits, which is a large number, but nevertheless smaller than n!.
