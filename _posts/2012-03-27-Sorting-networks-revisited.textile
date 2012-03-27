@@ -65,4 +65,4 @@ bq. Zero-One Principle: If a nonadaptive algorithm produces sorted output when t
 
 The proof for the theorem above is quite simple. A proof by contradiction can be found "here":http://serverbob.3x.ro/IA/DDU0170.html, and Knuth gives an analogous proof by contrapositive.
 
-So we only really need to test the network using the 2^n possible strings of n bits, which is a large number, but nevertheless smaller than n!.
+So we only really need to test the network using the 2 ^n^ possible strings of n bits, which is a large number, but nevertheless smaller than n!.
