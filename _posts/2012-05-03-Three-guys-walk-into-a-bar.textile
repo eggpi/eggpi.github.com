@@ -26,6 +26,8 @@ At this point the mathematician picks up a napkin from the counter and a pen fro
 
 <span class="dialog">"I'm pretty sure we can help you come up with a better way of doing that. In fact, I think this can be done in linear time with constant space."</span>
 
+<!-- RSS summary end -->
+
 He then shows the napkin to the algorithmist and the coder. The napkin reads:
 
 bq. There is an array containing all the integers from 1 to n in some order, except that one integer is missing and another is duplicated. Suggest an efficient algorithm for finding both numbers.
