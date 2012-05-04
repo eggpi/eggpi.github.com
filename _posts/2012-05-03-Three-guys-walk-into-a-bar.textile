@@ -1,0 +1,117 @@
+---
+layout: default
+title: Three guys walk into a bar...
+tags: [algorithms, bit hack, quicksort]
+---
+
+Three guys walk into a bar: the algorithmist, the coder and the mathematician.
+
+As they approach the counter, a short, grouchy employee with greasy hair cleans up their spots with a dirty piece of dustcloth. They sit on three adjacent stools and are greeted by their old acquaintance, the aging owner of the bar.
+
+<span class="dialog">"Howdy! What can I get you tonight?"</span>
+
+<span class="dialog">"Hello there! New guy around here?"</span>, says the coder, discretely pointing at the short employee.
+
+<span class="dialog">"Very observant. He is, indeed, new. And oh, so dull! He never pays any attention to what he's doing and keeps breaking glasses!"</span>
+
+The owner of the bar then turns around and points to a shelf, where lies a row of n identical glasses. In each glass, a different number is painted with red marker, from 1 to n. He continues:
+
+<span class="dialog">"And that isn't even the worst part. After breaking a glass, he doesn't bother to mark the replacement with the same number as the one he broke. In fact, he never uses the same number, and just copies the replacement's number from another glass in the shelf."</span>
+
+<span class="dialog">"Why is that?"</span>, asks the intrigued algorithmist.
+
+<span class="dialog">"No idea! And I always need to keep an eye on the shelf, looking for missing and repeated numbers in the glasses, so I can properly replace them! As if I had nothing better to do than to run an O(n²) algorithm to check the numbers every single day!"</span>
+
+At this point the mathematician picks up a napkin from the counter and a pen from his pocket and scribbles something. He then glances at his two friends and at the other man and proposes:
+
+<span class="dialog">"I'm pretty sure we can help you come up with a better way of doing that. In fact, I think this can be done in linear time with constant space."</span>
+
+He then shows the napkin to the algorithmist and the coder. The napkin reads:
+
+bq. There is an array containing all the integers from 1 to n in some order, except that one integer is missing and another is duplicated. Suggest an efficient algorithm for finding both numbers.
+
+After pondering for nearly an hour, the algorithmist snatches the napking from the mathematician's hands and writes on it for a few minutes. He then grins with satisfaction as he begins to explain his solution.
+
+h3. The Algorithmist's Solution
+
+Let's start from two simpler derivatives of the original problem and work our way up to this solution.
+
+First, suppose you have an array containing all integers from 1 to n in some order, except one of them is missing. This is the same as the original problem, without the duplicated number. How can you find the missing number?
+
+That's much easier: just take the sum S[~a~] of all numbers in the array and compare it to S[~n~], the sum of the first n natural numbers. Since the first n natural numbers constitute an arithmetic progression, it follows that S[~n~] = n(n+1)/2. The missing number is therefore just S[~n~] - S[~a~].
+
+Let's now examine the converse problem: instead of removing a number from the array, we add one. This is the same as the original problem above, except there's only a duplicated number, and none is missing.
+
+The solution is straightforward: once again we compare S[~a~] with S[~n~], and this time the duplicated number is S[~a~] - S[~n~].
+
+Notice how, since adding all number in the array takes linear time, both solutions above also take linear time and constant space.
+
+The algorithmist's solution uses a composition of the two simplified algorithms above to build a divide-and-conquer algorithm for the original, more complicated problem. Imagine the input array in the original problem can be decomposed in two halves: one containing all numbers from 1 to n/2, except one of the numbers is missing, and another containing all numbers from n/2 to n, with one duplicated. Then, finding the missing and extra numbers in the array would only be a matter of applying the simplified algorithms above to the halves of the array.
+
+But how can we do that decomposition? And how do we know which half has a missing and which has an extra number?
+
+For the splitting, we can just use a derivative of the pivoting subroutine from quicksort. Given an array of n integers from 1 to n, we can pivot around the middle value (n + 1)/2 even if such value is not in the array and expect about half the integers to fall to the left of the pivot, and the other half to fall to its right. If that property doesn't hold, that is, if one side of the array is larger than the other, then the extra element must be in the larger side and the missing element should have been in the smaller side.
+
+<table class="img-wrap standout">
+    <tr><td style="text-align: center">4, 1, 3, 5, 9, 10, 8, 7, 6, 7</td></tr>
+    <tr><td class="img-caption">-- Numbers from 1 to 8 with 2 missing and an extra 7, pivoted around 5.5
+
+    Notice how the left side (4, 1, 3, 5) is smaller and adds up to 13, while we would expect 15. Likewise, the right side is larger and adds up to 47, while we expected 40.
+    </td><tr>
+</table>
+
+We may be unlucky and find out that both sides have the same size, which means both the missing and the extra integers belong in the same side. However, this also means that the other side is untainted -- it contains exactly half of the numbers in the range from 1 to n, so we can identify it by taking the sum of its elements and comparing it with what we expected it to be: the sum of either the upper or lower half of that range. We have thus split our array in two halves, one of which is a subproblem, in that it contains half of the numbers in the range from 1 to n, except with one missing and one duplicated, and another which can be easily identified once we have the sums of the numbers in each half. All we need to do now is recurse into the subproblem, reducing the size of our problem in half.
+
+The running time of this algorithm is described by the recurrence T(n) = T(n/2) + O(n), which can be proved to be O(n), and it uses constant space. I was actually quite sloppy in the explanation above with regard to the sizes of each "half" of the array, or the exact behavior of the algorithm when n is even or odd, but these issues are of minor concern and are illustrated in the implementation below, in Python:
+
+<style>
+    .highlight {
+        height: 300px;
+    }
+</style>
+
+{% highlight python linenos %}
+{% include snippets/find_extra_and_missing.py %}
+{% endhighlight %}
+
+Notice how the code implements two simple tweaks to the algorithm: we calculate the sums of the elements in each half of the array while pivoting, and the tail recursion has been converted into a loop.
+
+<span class="dialog">"That's... interesting!"</span>, says the mathematician as the enthusiastic algorithmist finishes his explanation.</span>
+
+<span class="dialog">"Well, yes, but a bit too convoluted for me. I have a simpler way, let me show you."</span>, says the coder.
+
+h3. The Coder's Solution
+
+Take Y, the XOR of all numbers from 1 to n, XOR'ed with the XOR of all numbers in the array: Y = 1 ^ 2 ^ 3 ... ^ n ^ A[~1~] ^ A[~2~] ... ^ A[~n~].
+
+Every bit in every number that is both in the array and the range exactly once will be cleared; the result will be the XOR of the missing and extra numbers: Y = missing ^ extra.
+
+This happens because all other numbers end up being XOR'ed with themselves once, thus clearing their bits in the result. The missing number, however, only gets XOR'ed in once, and the extra number gets XOR'ed three times -- recall that a ^ a ^ a = 0 ^ a = a for any a, and thus the bits of the extra number are never cleared.
+
+Now, since the missing and extra numbers are different, they must differ at some bit in their binary representation. Thus Y has at least one bit set. Let the i-th bit be one of those bits. Then, all numbers in the range of 1 to n whose i-th bit is set are candidates for being the missing or extra number.
+
+We take the sum of all numbers with the i-th bit set in the range from 1 to n, and compare it with the sum of the numbers with the same property in our array. If the former is bigger, their difference is the missing number. Else, the difference (in absolute value, of course) is the extra number.
+
+Having either number, the other can be found with a mere XOR with Y. For example, Y ^ missing = (missing ^ extra) ^ missing = extra ^ (missing ^ missing) = extra ^ 0 = extra. This algorithm might make a few passes over the input array and its range of values, but it is definitely linear and uses constant space as well.
+
+<span class="dialog">"And voilà!"</span>, exclaimed the coder.
+
+<span class="dialog">"Impressive, though I still like how elegant my algorithm turned out to be..."</span>, added the algorithmist.
+
+<span class="dialog">"So what about you?"</span>, asket the coder to the mathematician.
+
+h3. The Mathematician's Solution
+
+The sum of all numbers in our array minus the sum of all numbers in the range from 1 to n is of course extra - missing. Now, what is the sum of the _squares_ of all numbers in our array, minus the sum of all _squares_ of the numbers in the range from 1 to n? It is extra² - missing² = (extra + missing)(extra - missing).
+
+So now we have extra - missing, and (extra + missing)(extra - missing). As you can see, we are a simple substitution away from finding both numbers.
+
+<span class="dialog">"...and that's about it."</span>, concluded the mathematician.
+
+Beers were handed to each of the daring problem-solvers, and the night proceeded with lighter conversations.
+
+h3. Credits
+
+I found the original problem at "Tanya Khovanova's blog":http://blog.tanyakhovanova.com/?p=402 through Hacker News.
+
+The coder's and the mathematician's solutions were taken directly from the comments in that blog's post. The algorithmist's solution, however, is my own beast :)

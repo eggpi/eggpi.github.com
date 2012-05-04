@@ -196,3 +196,7 @@ p {
     height: 15px;
     border: none;
 }
+
+.dialog {
+    font-style: italic;
+}
