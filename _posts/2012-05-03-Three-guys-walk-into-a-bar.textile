@@ -56,7 +56,7 @@ For the splitting, we can just use a derivative of the pivoting subroutine from 
 
 <table class="img-wrap standout">
     <tr><td style="text-align: center">4, 1, 3, 5, 9, 10, 8, 7, 6, 7</td></tr>
-    <tr><td class="img-caption">-- Numbers from 1 to 8 with 2 missing and an extra 7, pivoted around 5.5
+    <tr><td class="img-caption">-- Numbers from 1 to 10 with 2 missing and an extra 7, pivoted around 5.5
 
     Notice how the left side (4, 1, 3, 5) is smaller and adds up to 13, while we would expect 15. Likewise, the right side is larger and adds up to 47, while we expected 40.
     </td><tr>
