@@ -96,11 +96,11 @@ We take the sum of all numbers with the i-th bit set in the range from 1 to n, a
 
 Having either number, the other can be found with a mere XOR with Y. For example, Y ^ missing = (missing ^ extra) ^ missing = extra ^ (missing ^ missing) = extra ^ 0 = extra. This algorithm might make a few passes over the input array and its range of values, but it is definitely linear and uses constant space as well.
 
-<span class="dialog">"And voilà!"</span>, exclaimed the coder.
+<span class="dialog">"And voilà!"</span>, exclaims the coder.
 
-<span class="dialog">"Impressive, though I still like how elegant my algorithm turned out to be..."</span>, added the algorithmist.
+<span class="dialog">"Impressive, though I still like how elegant my algorithm turned out to be..."</span>, adds the algorithmist.
 
-<span class="dialog">"So what about you?"</span>, asket the coder to the mathematician.
+<span class="dialog">"So what about you?"</span>, asks the coder to the mathematician.
 
 h3. The Mathematician's Solution
 
@@ -108,9 +108,9 @@ The sum of all numbers in our array minus the sum of all numbers in the range fr
 
 So now we have extra - missing, and (extra + missing)(extra - missing). As you can see, we are a simple substitution away from finding both numbers.
 
-<span class="dialog">"...and that's about it."</span>, concluded the mathematician.
+<span class="dialog">"...and that's about it."</span>, concludes the mathematician.
 
-Beers were handed to each of the daring problem-solvers, and the night proceeded with lighter conversations.
+Beers are handed to each of the daring problem-solvers in glasses, all with a red 8 marked on them, and the night proceeds with lighter conversations.
 
 h3. Credits
 
