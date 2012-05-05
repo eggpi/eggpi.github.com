@@ -6,7 +6,7 @@ def sum_arith_progression(n, m):
     return (m**2 - n**2 + n + m) / 2
 
 def partition(l, p):
-    """ Partition a list p as pivot value.
+    """ Partition a list with p as pivot value.
     Returns left_sum, right_sum, idx such that sum(l[s:idx+1]) == left_sum,
     sum(l[idx+1:e]) == right_sum and all elements in l[s:idx+1] are smaller
     than or equal to p, and all elements in l[idx+2:e] are greater than p.
