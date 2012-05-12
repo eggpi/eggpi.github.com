@@ -38,6 +38,11 @@ p {
     color: #363333;
 }
 
+#me {
+    height: 120px;
+    width: 130px;
+}
+
 #header {
     padding: 10px 40px;
 }
