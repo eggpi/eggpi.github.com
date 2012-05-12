@@ -46,7 +46,7 @@ Let's now examine the converse problem: instead of removing a number from the ar
 
 The solution is straightforward: once again we compare S[~a~] with S[~n~], and this time the duplicated number is S[~a~] - S[~n~].
 
-Notice how, since adding all number in the array takes linear time, both solutions above also take linear time and constant space.
+Notice how, since adding all numbers in the array takes linear time, both solutions above also take linear time and constant space.
 
 The algorithmist's solution uses a composition of the two simplified algorithms above to build a divide-and-conquer algorithm for the original, more complicated problem. Imagine the input array in the original problem can be decomposed in two halves: one containing all numbers from 1 to n/2, except one of the numbers is missing, and another containing all numbers from n/2 to n, with one duplicated. Then, finding the missing and extra numbers in the array would only be a matter of applying the simplified algorithms above to the halves of the array.
 
