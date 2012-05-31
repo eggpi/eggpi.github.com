@@ -32,7 +32,7 @@ He then shows the napkin to the algorithmist and the coder. The napkin reads:
 
 bq. There is an array containing all the integers from 1 to n in some order, except that one integer is missing and another is duplicated. Suggest an efficient algorithm for finding both numbers.
 
-After pondering for nearly an hour, the algorithmist snatches the napking from the mathematician's hands and writes on it for a few minutes. He then grins with satisfaction as he begins to explain his solution.
+After pondering for nearly an hour, the algorithmist snatches the napkin from the mathematician's hands and writes on it for a few minutes. He then grins with satisfaction as he begins to explain his solution.
 
 h3. The Algorithmist's Solution
 
