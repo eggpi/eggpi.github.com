@@ -87,7 +87,8 @@ p {
 }
 
 #sidebar p {
-    padding-right: 1em;
+    text-align: left;
+    padding-right: 10px;
 }
 
 #sidebar ol li {
