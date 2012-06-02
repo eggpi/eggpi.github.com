@@ -93,7 +93,9 @@
         <div id="content-top">
             <h1><a href="{{ page.url }}">{{ page.title }}</a></h1>
             {% if page.type == "page" %}
-                <h2>{{ page.subtitle }}</h2>
+                {% for subtitle in page.subtitles %}
+                <h2>{{ subtitle }}</h2>
+                {% endfor %}
             {% else %}
                 <h2>Published {{ page.date | date_to_string }}</h2>
             {% endif %}
