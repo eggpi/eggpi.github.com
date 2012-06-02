@@ -9,8 +9,6 @@
 
 body {
     background: url(/img/background.jpg) repeat-y 80% 0;
-    font-size: 14px;
-    font-family: Merriweather,Georgia,serif;
 }
 
 a {
@@ -21,8 +19,9 @@ a:visited {
     color: #706e66;
 }
 
-p {
-    text-align: justify;
+a, p, h1, h2, h3, td, blockquote, input {
+    font-size: 14px;
+    font-family: Merriweather,Georgia,serif;
 }
 
 .layout-element {
@@ -72,6 +71,14 @@ p {
     float: right;
     width: 19.2%;
     padding-top: 10px;
+}
+
+#sidebar * {
+    font-size: 13px;
+}
+
+#sidebar h2 {
+    font-size: 16px;
 }
 
 #sidebar ol {
@@ -154,9 +161,11 @@ p {
 /* override coloring for title link */
 #content h1 a {
     color: black;
+    font-size: inherit;
 }
 
 #content p {
+    text-align: justify;
     margin: 10px 0px;
 }
 
