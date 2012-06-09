@@ -106,6 +106,16 @@ a, p, h1, h2, h3, td, blockquote, input {
 #content {
     width: 78%;
     margin: 10px;
+    background: white;
+}
+
+/* hack for Android ICS browser: set background color explicitly above
+ * for #content and make children inherit to make paragraphs span full width.
+ * source:
+ * http://stackoverflow.com/questions/9833034/what-would-cause-a-p-element-to-not-span-full-width-in-the-android-browser
+ */
+#content * {
+    background: inherit;
 }
 
 #content-top {
