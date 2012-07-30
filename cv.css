@@ -1,0 +1,82 @@
+@import url(http://fonts.googleapis.com/css?family=Judson);
+@import url(http://fonts.googleapis.com/css?family=Unlock);
+
+* {
+    font-family: "Judson";
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: darkslateblue;
+    text-decoration: none;
+}
+
+h1 {
+    font-family: "Unlock";
+    font-size: 18px;
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 16px;
+}
+
+p {
+    text-align: justify;
+    margin: 3px 0;
+}
+
+ul {
+    list-style: circle;
+    margin: 10px 30px;
+}
+
+
+#guilherme-pinto-gonçalves-08041991 {
+    padding-bottom: 5px;
+    border-bottom: 2px solid midnightblue;
+    margin-bottom: 30px;
+}
+
+#guilherme-pinto-gonçalves-08041991 h1 {
+    text-decoration: none;
+    font-size: 20px;
+}
+
+#guilherme-pinto-gonçalves-08041991 ul {
+    margin: 0;
+    list-style: none;
+}
+
+#guilherme-pinto-gonçalves-08041991 li {
+    display: inline;
+}
+
+#guilherme-pinto-gonçalves-08041991 li:after {
+    content: " ◦ "
+}
+
+#guilherme-pinto-gonçalves-08041991 li:last-child:after {
+    content: "";
+}
+
+#summary {
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+#birth {
+    color: darkslategray;
+    font-size: 12px;
+}
+
+.level1 {
+    margin: 15px;
+}
+
+.level1 .level2 {
+    margin-bottom: 10px;
+}
