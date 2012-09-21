@@ -34,6 +34,9 @@ ul {
     margin: 10px 30px;
 }
 
+body {
+    padding: 20px 0;
+}
 
 #guilherme-pinto-gonçalves-04081991 {
     padding-bottom: 5px;
@@ -74,7 +77,8 @@ ul {
 }
 
 .level1 {
-    margin: 15px;
+    margin: 0 auto;
+    width: 980px;
 }
 
 .level1 .level2 {
