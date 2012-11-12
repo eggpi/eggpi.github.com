@@ -1,0 +1,19 @@
+---
+layout: default
+title: Oblivious random sampling
+tags: [algorithms]
+---
+
+Here's another neat trick I picked up from "Programming Pearls":http://www.amazon.com/Programming-Pearls-2nd-Jon-Bentley/dp/0201657880/:
+
+bq. How can you select one of n objects at random, when you see the objects sequentially but you don't know the value of n beforehand?
+
+This is Problem 10 of Column 12 of the book. This problem could arise, for example, when reading a file line by line to select one line randomly without storing the entire contents of the (potentially big) file in memory.
+
+<!-- RSS summary end -->
+
+The solution turns out to be quite an elegant loop: simply keep track of the currently selected object, and replace it with the ith object with probability 1/i. That is, always select the first object, then replace it with the second with probability 1/2, and replace the then-selected object with the third with probability 1/3, and so on. It is not very hard to see that the probability for a given object to remain selected until the end of this loop is 1/n, which is exaclty what we wanted.
+
+A few days ago, I caught myself in need to randomly select k different elements randomly from a set of n elements. I immediately considered trying to generalize the algorithm above, by iterating over the set of n elements keeping track of the k elements picked so far, and replacing the (i % k)th element that is currently selected with the ith element traversed with probability k/i. As expected, this reduces to the algoritm above when k is 1, and unless element clashes in the same (i % k) slot cause problems (which I suspect they will, but have not proven ;) ), every element has k/n probability of being picked.
+
+After doing some research, I found a slightly simpler and (more importantly) tried-and-true solution: "Reservoir Sampling":http://en.wikipedia.org/wiki/Reservoir_sampling. The main difference here is that the slot that a newly-selected element is also random. This solves any problem my algorithm sketch could have with slot clashes, and is the solution I ended up using. Interestingly, for my application, I actually have all elements for random access, but ended up using a very elegant algorithm that generalizes one for the restricted scenario in which only sequential access is possible.
