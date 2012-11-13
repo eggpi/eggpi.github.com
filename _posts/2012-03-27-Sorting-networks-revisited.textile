@@ -49,7 +49,7 @@ Interestingly, we can often adapt a known algorithm to use only _cmpexch(x, y)_ 
 For a recursive example, let's assume we already have a sorting network for n elements, and we want to build a sorting network for n+1 elements. One valid strategy would be to sort the n first elements with the network we already have, then insert the last element into its place, like so:
 
 <table class="img-wrap standout">
-    <tr><td><img style="height: 400px" alt="Insertion sorting network" src="https://upload.wikimedia.org/wikipedia/en/thumb/6/66/Recursive-insertion-sorting-network.svg/576px-Recursive-insertion-sorting-network.svg.png" title="Insertion sorting network" /></td></tr>
+    <tr><td><img style="height: 400px" alt="Insertion sorting network" src="/img/sorting-network-4.png" title="Insertion sorting network" /></td></tr>
     <tr><td class="img-caption">-- Insertion sorting network</td><tr>
 </table>
 
