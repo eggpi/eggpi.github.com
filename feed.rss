@@ -19,16 +19,8 @@ base_url: http://guilherme-pg.com
         <id>{{ page.base_url }}{{ post.id }}/</id>
         <summary type="html">
         {% assign seen_summary_mark = false %}
-        {% assign paragraphs = post.content | split:"\n" %}
-        {% for p in paragraphs %}
-            {% capture stripped %}{{ p | strip_newlines }}{% endcapture %}
-            {% if stripped == '<p><!-- RSS summary end --></p>' %}
-                {% assign seen_summary_mark = true %}
-            {% endif %}
-
-            {% if seen_summary_mark == false %}{{ p | xml_escape }}{% endif %}
-        {% endfor %}
-
+        {% assign parts = post.content | split:'<p><!-- RSS summary end --></p>' %}
+        {{ parts.first | xml_escape }}
         {% capture continue %}<em>...keep reading at <a href="{{ page.base_url }}{{ post.url }}">{{ post.title }}</a></em>{% endcapture %}
         {{ continue | xml_escape }}
         </summary>
