@@ -1,0 +1,58 @@
+---
+layout: default
+title: Freeing my phone!
+tags: [android, free software, cryptography, f-droid, cyanogenmod]
+---
+
+Ever since I bought my phone (a Google Nexus) more than a year ago, I've been meaning to try "CyanogenMod":https://cyanogenmod.org, a free software firmware for Android devices, and I finally got around to doing it yesterday. This project builds on top of the Android code that's publicly available and creates a new operating system with interesting new features (think a timer for the camera app, a fancy graphic calculator and a sound equalizer, for instance), while also maintaining closer contact with the community than Android and making it easier for contributors to get involved.
+
+The recent announcement of an "incognito mode":http://www.ubergizmo.com/2013/06/cyanogenmod-roms-will-soon-come-with-incognito-mode-for-apps/ for running apps with limited permissions also spiked my interest -- I have given up on installing apps because I wasn't comfortable with their permission requirements several times in the past, and it seems mainstream apps are concerned with at least "99 problems":http://arstechnica.com/gadgets/2013/07/samsung-and-jay-z-give-the-internet-a-masters-class-in-how-not-to-make-an-app/ other than the user's privacy.
+
+I also took the opportunity to explore some interesting free software alternatives to popular apps I had been using on Android, and the results are pretty pleasant.
+
+<!-- RSS summary end -->
+
+Besides the features CyanogenMod adds on top of Android, I really like how I'm able to use it without logging in to my Google account -- things like having Google show traffic information on my phone for locations I had searched for on my laptop, while convenient, were also somewhat creepy and I couldn't help but feeling my every action was being recorded while on Android and associated univocably to me through my account. In that sense, the device feels more like it's actually mine now.
+
+I was initially surprised (and a little put off) by the fact that none of the Google apps I had become used to were present after booting into CyanogenMod, including the app store. Though it is possible to install these apps on top of CyanogenMod, I took this as an opportunity to play around with "F-Droid":https://f-droid.org/, a repository for free software apps for Android. While I haven't had the time to fully explore it, I'm glad to say I found some gems among the replacements for my old apps, and I intend to keep using only free apps for as long as possible.
+
+Below are some of the app replacements I have found, and what I like about them. All of them can also be found at the official app store, so they're trivial to install for Android users as well.
+
+h3. APG
+
+This is an OpenPGP implementation for Android. It handles tasks such as creating, modifying and importing keys, and also encrypting and decrypting files and messages. Though it has a very simple (and, at times, confusing) user interface, the interesting bit about this app is how other apps can interact with it to enable encryption for their own data.
+
+While APG is capable of generating a new key pair, I chose to generate mine from my laptop and then import it into the device. So I started on the laptop by creating a key pair:
+
+{% highlight bash linenos %}
+$ gpg --gen-key # follow the wizard to generate the keys
+$ gpg --export-secret-key > secret.asc # export secret key to a file
+$ gpg --send-keys --keyserver pgp.mit.edu # send public key to a keyserver
+{% endhighlight %}
+
+And proceeded to move the secret key to the device with adb, after plugging it to the USB port (but any other method would do, of course):
+
+{% highlight bash linenos %}
+$ adb push secret.asc /storage/emulated/legacy/APG/secret.asc # move secret
+$ rm secret.asc
+{% endhighlight %}
+
+I then followed the menus on APG to import and remove my copy of the private key and download my public key from the keyserver.
+
+h3. k9mail
+
+The email app "k9mail":https://github.com/k9mail/k-9/ is a very polished replacement for the GMail app that has everything you'd expect from a mail client, like automatic syncing, support for multiple accounts, notifications, and also some interesting configuration options, such as choosing a Quiet Time during which no notifications are issued, changing the color scheme, volume key navigation and split screen mode. It also looks pretty much like the GMail app with the default theme, so Android users should feel at home.
+
+The configuration process for new accounts is as easy as it gets, and most settings are guessed for GMail accounts. The only caveat was that, since I use two-factor authentication, I had to create an "application-specific password":https://support.google.com/accounts/answer/185833?hl=en instead of using my own GMail password.
+
+But to me the most interesting feature in k9mail is (you guessed it) its integration with APG, which makes it very easy to send and receive encrypted emails. Just type in a recipient's address, check the Encrypt checkbox and, if you already have that person's public key in APG (as identified by the email address), k9mail will handle the rest. Decrypting also only requires a button press.
+
+h3. Twidere
+
+Twidere is a very resourceful Twitter client. Though visually it's pretty much a clone of the official Twitter app, Twidere has tons of settings available under the hood. For example, it's possible to tweak the color of the notification light upon new notifications, filter out users or keywords from your timeline, or even fine-tune the DNS settings used by the app to find the API servers (perhaps Twitter is being blocked in your country?).
+
+The only caveat is that as of API version 1.1, which is used by the app, Twitter has somewhat restricted what third-party clients are able to do. There is a disclaimer in the opening screen with more details about what features Twidere can't offer because of that, but so far I haven't really missed anything.
+
+h3. Conclusion
+
+Though it has only been a day, I'm pretty happy with my move to CyanogenMod. I'll probably still miss some things over time (Google Maps will be sorely missed, for instance), but I'm happy to have gained some other unexpected and very appealing features in return.
