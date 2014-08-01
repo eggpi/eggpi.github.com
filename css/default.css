@@ -16,7 +16,7 @@ a {
 }
 
 a:visited {
-    color: #706e66;
+    color: #878787;
 }
 
 a, p, h1, h2, h3, td, blockquote, input {
@@ -25,7 +25,7 @@ a, p, h1, h2, h3, td, blockquote, input {
 }
 
 .layout-element {
-    background-color: #eae7df;
+    background-color: #d1d5e3;
 }
 
 .layout-element h1 {
@@ -51,7 +51,7 @@ a, p, h1, h2, h3, td, blockquote, input {
 }
 
 #topbar {
-    background-color: black;
+    background-color: #363333;
     padding-left: 30px;
 }
 
@@ -105,7 +105,7 @@ a, p, h1, h2, h3, td, blockquote, input {
 #content {
     width: 78%;
     margin: 10px;
-    background: white;
+    background-color: #fbfbfb;
 }
 
 /* hack for Android ICS browser: set background color explicitly above
