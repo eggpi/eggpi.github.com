@@ -106,7 +106,6 @@
 
         {% if page.type != "page" %}
             <br/>
-            <a id="comments-toggle" href="#comments"><em>Toggle Comments</em></a>
             {% if page.tags.size > 0 %}
                 <div id="tags">
                     <em>Tags:</em>
@@ -126,8 +125,6 @@
                     </ul>
                 </div>
             {% endif %}
-
-            {% include disqus_thread.html %}
 
             {% comment %}
                 Add links to previous and next post, unless this is a page.
