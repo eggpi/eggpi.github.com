@@ -105,26 +105,6 @@
 
         {% if page.type != "page" %}
             <br/>
-            {% if page.tags.size > 0 %}
-                <div id="tags">
-                    <em>Tags:</em>
-                    <ul>
-                        {% for tag in page.tags %}
-                            {% assign url = "/tags.html" %}
-
-                            {% if forloop.last %}
-                                <li class="last">
-                            {% else %}
-                                <li>
-                            {% endif %}
-
-                            <a href="{{ url | append: '#' }}{{ tag | replace: ' ','-' }}">{{ tag }}</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            {% endif %}
-
             {% comment %}
                 Add links to previous and next post, unless this is a page.
             {% endcomment %}
