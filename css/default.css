@@ -192,10 +192,18 @@ a, p, h1, h2, h3, td, blockquote, input {
     width: 100%;
 }
 
-#content .img-caption {
+#content .img-caption, .img-attribution {
     font-size: 80%;
     font-style: italic;
     padding-top: 10px;
+}
+
+#content .img-attribution {
+    font-size: 60%;
+}
+
+#content .img-attribution * {
+    font-size: 100%;
 }
 
 #content #tags * {

@@ -9,8 +9,9 @@ I recently came across an amazing technique for manipulating Python iterators in
 The technique consists in defining an iterator as a function of itself, thus making a cyclical definition. The recipe hinges on using itertools.tee to split the to-be iterator, which is forward-referenced in a function before it is built, and feeding one (or more) of the tee'd iterators into the other.
 
 <table class="img-wrap standout">
-    <tr><td><img src="/img/ouroboros.jpg" title="Ouroboros" /></td></tr>
+    <tr><td><img src="/img/ouroboros.png" title="Ouroboros" /></td></tr>
     <tr><td class="img-caption">-- The Ouroboros comes to mind</td><tr>
+    <tr><td class="img-attribution">(By AnonMoos [Public domain], <a href="https://commons.wikimedia.org/wiki/File%3AOuroboros-simple.svg">via Wikimedia Commons</a>)</tr></td>
 </table>
 
 Bear with me, I'll explain in a moment.
