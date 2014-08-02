@@ -108,6 +108,7 @@ a, p, h1, h2, h3, td, blockquote, input {
     border-width: 0px 3px 3px;
     border-color: #363333;
     border-style: solid;
+    overflow: hidden;
 }
 
 #content {
