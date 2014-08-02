@@ -3,12 +3,12 @@
     padding: 0px;
 }
 
-*:focus {
-    outline: none;
+body {
+    background-color: #5e5e5e;
 }
 
-body {
-    background: url(/img/background.jpg) repeat-y 80% 0;
+*:focus {
+    outline: none;
 }
 
 a {
@@ -102,10 +102,19 @@ a, p, h1, h2, h3, td, blockquote, input {
     margin-bottom: 2px;
 }
 
+#blog {
+    margin: 0 5%;
+    background: url(/img/background.jpg) repeat-y 80% 0;
+    border-width: 0px 3px 3px;
+    border-color: #363333;
+    border-style: solid;
+}
+
 #content {
     width: 78%;
     margin: 10px;
     background-color: #fbfbfb;
+    overflow: hidden;
 }
 
 /* hack for Android ICS browser: set background color explicitly above
