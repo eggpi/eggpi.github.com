@@ -27,6 +27,7 @@
     </script>
 </head>
 <body>
+  <div id="blog">
     <!-- Top header and navigation bar -->
     <div id="header" class="layout-element">
         <h1>might as well hack it</h1>
@@ -37,7 +38,6 @@
         <ol>
             <li><a href="/">Home</a></li>
             <li><a href="/about.html">About</a></li>
-            <li><a href="/tags.html">Tag index</a></li>
         </ol>
     </div>
 
@@ -49,9 +49,7 @@
                 <img id="me" src="/img/me.jpg"/>
                 <p>
                 I'm <a href="/about.html">Guilherme P. Gonçalves</a> and this is
-                my blog, where I'll write not so regularly about the cool stuff
-                I'm passionate about: free software, algorithms, my projects and
-                whatnot.
+                my blog, where I'll write not so regularly about my projects.
                 </p>
             </li>
 
@@ -78,11 +76,11 @@
                 <h2>Latest posts</h2>
                     <ol>
                         
-                            <li><a href="/2012/05/03/Three-guys-walk-into-a-bar.html">Three guys walk into a bar...</a></li>
+                            <li><a href="/2014/08/01/404.html">404</a></li>
                         
-                            <li><a href="/2012/03/27/Sorting-networks-revisited.html">Sorting networks revisited</a></li>
+                            <li><a href="/2013/07/26/Freeing-my-phone.html">Freeing my phone!</a></li>
                         
-                            <li><a href="/2012/03/20/Highlights-from-PyCon-US-2012-lecture-videos-part-2.html">Highlights from PyCon US 2012 lecture videos (part 2)</a></li>
+                            <li><a href="/2012/11/12/Oblivious-random-sampling.html">Oblivious random sampling</a></li>
                         
                     </ol>
             </li>
@@ -93,6 +91,7 @@
                 <h2>Follow me</h2>
                 <a target="_blank" href="http://github.com/guilherme-pg"><img class="follow" src="/img/github.ico"></a>
                 <a target="_blank" href="/feed.rss"><img class="follow" src="/img/rss-icon.png"/></a>
+                <a target="_blank" href="https://twitter.com/eggpi"><img class="follow" src="/img/twitter-bird-light-bgs.png"/></a>
             </li>
         </ol>
     </div>
@@ -100,7 +99,7 @@
     <!-- Page contents -->
     <div id="content">
         <div id="content-top">
-            <h1><a href="/404.html">404</a></h1>
+            <h1><a href="/2014/08/01/404.html">404</a></h1>
             
                 
                 <h2>four oh four</h2>
@@ -111,17 +110,14 @@
         </div>
 
         <p>
-Whatever you call it, sorry, this means this page doesn't exist.
+<p>Whatever you call it, sorry, this means this page doesn&#8217;t exist.</p>
 </p>
-
 <p>
-But do stick around!
+<p>But do stick around!</p>
 </p>
-
 <p>
-Here, I'll even give you this link to a <a href="/" id="random-link">random post</a>, no strings attached.
+<p>Here, I&#8217;ll even give you this link to a <a href="/" id="random-link">random post</a>, no strings attached.</p>
 </p>
-
 <script>
     $.getJSON("/index.json",
         function(data) {
@@ -131,8 +127,8 @@ Here, I'll even give you this link to a <a href="/" id="random-link">random post
     )
 </script>
 
-
         
     </div>
+  </div>
 </body>
 </html>
