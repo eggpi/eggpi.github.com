@@ -13,10 +13,10 @@ function handleNavigate(e) {
 
     switch (cmd) {
         case 'h':
-            to = $("#next").attr("href");
+            to = $('#next').attr('href');
             break;
         case 'l':
-            to = $("#previous").attr("href");
+            to = $('#previous').attr('href');
             break;
     }
 
