@@ -59,7 +59,7 @@ h3. Conclusions and next steps
 
 Despite the iffiness of the jemalloc3 + PartitionAlloc Frankenbuild, the experimental evidence shows that:
 
-1. There's no reason to expect PartitionAlloc's memory footprint to be much better than jemalloc3
+1. There's no reason to expect PartitionAlloc's memory footprint to be much better than jemalloc3's
 2. Partitioning jemalloc3 should introduce little additional memory overhead
 3. jemalloc3 regresses significantly when compared with mozjemalloc
 
