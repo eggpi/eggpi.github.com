@@ -53,6 +53,7 @@ a, p, h1, h2, h3, td, blockquote, input {
 #topbar {
     background-color: #363333;
     padding-left: 30px;
+    padding-top: 2px;
 }
 
 #topbar ol li {
