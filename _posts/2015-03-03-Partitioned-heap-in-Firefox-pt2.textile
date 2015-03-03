@@ -4,11 +4,11 @@ title: Partitioned heap in Firefox, part 2
 tags: [mozilla, security, jemalloc]
 ---
 
-It's been a few months since my first "post on implementing heap partitioning in Gecko":http://guilherme-pg.com/2014/10/15/Partitioned-heap-in-Firefox-pt1.html, and we've reached another milestone since then. In the previous update, I talked about how we chose to implement heap partitioning on top of jemalloc3 instead of PartitionAlloc, and how we still needed to address some of jemalloc3's rough edges to make it a suitable replacement for mozjemalloc. This post will explain how we (finally!) made the switch to jemalloc3 on Nightly, highlighting some of the most important changes along the way.
+It's been a few months since my first "post on implementing heap partitioning in Gecko":http://guilherme-pg.com/2014/10/15/Partitioned-heap-in-Firefox-pt1.html, and we've reached another milestone since then. In the previous update, I talked about how we chose to implement heap partitioning on top of jemalloc3 instead of PartitionAlloc, and how we still needed to address some of jemalloc3's rough edges to make it a suitable replacement for mozjemalloc.
+
+This post is about how we finally made the switch to jemalloc3 on Nightly, which turned out to be a sizable project on its own, and in it, I'll go over some of the bugs I worked directly on (other MemShrink folks, in particular Eric Rahm and Mike Hommey, have their own jemalloc3 war stories, but I'm obviously not the best person to tell them).
 
 <!-- RSS summary end -->
-
-Updating to jemalloc3 ended up being a sizable project on its own. Back when I wrote part 1 of this post, the "meta-bug for updating to jemalloc3":https://bugzil.la/762449 only listed three dependencies, which I tackled first. This turned out to be an incomplete list, though, and after Eric Rahm, Mike Hommey and I combed through the list of changes made over the past couple of years to mozjemalloc, we identified a few other changes that needed to be either upstreamed or dropped in the transition. I'll go over some of the bugs I worked directly on in the following sections.
 
 h3. Fixing regressions in memory metrics
 
@@ -24,7 +24,7 @@ h3. Measuring bookkeeping
 
 Another important memory metric we track is 'bookkeeping', which is defined as the amount of memory used for data structures that are internal to the memory allocator. For readers that are well-versed in mozjemalloc's internals, 'bookkeeping' corresponds to base allocations plus arena and chunk headers.
 
-Sadly, back when I was working on this, jemalloc3 doesn't have a similar metric, and implementing a general one would be quite tricky: not only would we be upstreaming our accounting logic as implemented in mozjemalloc, but we would also have to measure the bookkeeping for optional features (such as quarantine and tcache) that are not enabled in Gecko. Furthermore, some of this optional bookkeeping actually comes out of arenas, and as such is not easy to distinguish from actual allocations made by the application. It became apparent that the best solution then would be to import a simplified patch into our tree, measuring only what we really care about, which we did in "bug 899126":https://bugzil.la/899126.
+Sadly, back when I was working on this, jemalloc3 didn't have a similar metric, and implementing it in the general case would have been quite tricky: not only would we be upstreaming our accounting logic as implemented in mozjemalloc, but we would also have to measure the bookkeeping for optional features (such as quarantine and tcache) that are not enabled in Gecko. Furthermore, some of this optional bookkeeping actually comes out of arenas, and as such is not easy to distinguish from actual allocations made by the application. It became apparent that the best solution then would be to import a simplified patch into our tree, measuring only what we really care about, which we did in "bug 899126":https://bugzil.la/899126.
 
 Recently, jemalloc3 has begun to accommodate our use case by exposing some new statistics on the memory used for allocator metadata, from which 'bookkeeping' can be computed. "Bug 1125514":https://bugzil.la/1125514 tracks the task of switching to this new mechanism.
 
