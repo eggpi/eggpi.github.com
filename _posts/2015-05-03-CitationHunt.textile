@@ -32,7 +32,7 @@ I then introduced CitationHunt to the community on the "VillagePump":https://en.
 
 h2. Lessons learned
 
-This project has taught me quite a few things:
+This project has taught me a few interesting lessons:
 
 _Adding citations can be super easy, but also super hard_: "Many":bob "unsourced":mooc "statements":mary reflect the source nearly verbatim. Anyone with basic search engine skills can easily fill them up. On the other hand, if you can find the decades-old pamphlet in which hardcore singer H.R. is described as ""James Brown gone berserk"":https://tools.wmflabs.org/citationhunt/?id=9eba81be, I'll be immensely impressed.
 
@@ -50,6 +50,6 @@ h2. Conclusion
 
 CitationHunt has been pretty useful to me, and I've made several edits through it since its launch. If you made it this far in the post, do consider "trying it out":https://tools.wmflabs.org/citationhunt and let me know what you think!
 
-fn1. Interestingly, I don't even use Tinder, but their UX really struck me as an efficient way of sorting through many unattractive options to find one that really catches your eye.
+fn1. Amusingly, I don't even use Tinder, but their UX really struck me as an efficient way of sorting through many unattractive options to find one that really catches your eye.
 
 fn2. I'm being unfair here, there's no real performance problem with sqlite per se. However, the setup in Tools Labs would require using a sqlite database mounted over NFS, which does have pretty unpredictable performance.
