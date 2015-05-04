@@ -20,7 +20,7 @@ My thought process in coming up with it went something like this: as a wannabe e
 
 1. The Wikipedia "manual of style":https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style is hefty and intimidating;
 2. I didn't want to accidentally get involved in a "lame edit war":https://en.wikipedia.org/wiki/Wikipedia:Lamest_edit_wars;
-3. I didn't quite know how to find articles that needed to be (re-)written.
+3. I didn't quite know how to find articles and sections in need of editing.
 
 I tried to think of a class of edits that would be at the same time easy to perform and uncontroversial, but still interesting, and adding citations seemed like a good fit. The remaining problem was, of course, to facilitate the search for article snippets lacking citations, and that's the problem I sought to address.
 
