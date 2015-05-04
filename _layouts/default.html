@@ -38,11 +38,6 @@
             </li>
 
             <li class="sidebar-entry">
-                <h2>Search posts</h2>
-                {% include google_search.html %}
-            </li>
-
-            <li class="sidebar-entry">
                 <h2>Latest posts</h2>
                     <ol>
                         {% for p in site.posts limit: 3 %}
