@@ -8,7 +8,7 @@ They say living abroad changes your perspective on things: upon returning home, 
 
 You see, there's a little controversy going on in my hometown. It goes all the way back to 2006, during my high school years, and has persisted ever since. The progression of this little dispute, its battlefield sitting there at the very entrance to the city for everyone to see, caused me to chuckle every single time I visited my parents on weekends after leaving the city for university.
 
-The sight of yet another development, nine years after it all started, now that I've left not only the city but the country itself, has finally struck me in a quasi-foreign way (after the usual affectionate chuckle, that is). I wonder if the sheer duration of this seemingly endless back-and-forth would have caused the same impression if I'd stayed all along.
+The sight of yet another development, nine years after it all started, now that I've left not only the city but the country itself, has finally struck me as quasi-foreign today (after the usual affectionate chuckle, that is). I wonder if the sheer duration of this seemingly endless back-and-forth would have caused the same impression if I'd stayed all along.
 
 Regardless, I'd like to tell you the story of a sign, the first thing you'll see upon entering the delightful city of Sorocaba, São Paulo, Brazil. It reads "Sorocaba belongs to the Lord Jesus Christ", and it is the subject of a dispute not unlike the "RED":http://mashable.com/2015/07/01/graffiti-artist-experiment/ battle, or even the whole "Banksy vs. King Robbo":https://imgur.com/gallery/b4QB2 rivalry.
 
@@ -19,7 +19,7 @@ Regardless, I'd like to tell you the story of a sign, the first thing you'll see
     <tr><td class="img-caption">-- Source: "Arquivo JCS/Luiz Setti":http://www.jornalcruzeiro.com.br/materia/588751/totem-religioso-e-alvo-de-mais-um-protesto</td><tr>
 </table>
 
-Right after being erected, under the auspices of segments of the local Christian community, the sign was viewed by many as a glaring violation of the principle of secularity of the state (despite the fact that information on whether the sign was publicly funded or not is surprisingly hard to come by, its privileged location could hardly be held without the local government's approval). A couple of weeks later, it was briefly covered by a banner that read "Sorocaba respects and harbors all religions", and three days after that, smeared with paint.
+Right after being erected, under the auspices of segments of the local Christian community, the sign was viewed by many as a glaring violation of the principle of secularity of the state (though it's surprisingly hard to find information on whether the sign was publicly funded or not, its privileged location could hardly be held without the local government's approval). A couple of weeks later, it was briefly covered by a banner that read "Sorocaba respects and harbors all religions", and three days after that, smeared with paint.
 
 <table class="img-wrap standout">
     <tr><td><img style="height: 400px" alt="The sign got covered by a banner" src="https://i.imgur.com/WXcTX3W.jpg" title="The sign got covered by a banner" /></td></tr>
