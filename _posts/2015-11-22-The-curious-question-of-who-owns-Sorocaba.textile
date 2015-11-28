@@ -54,8 +54,8 @@ Thankfully I'm not in the business of providing answers myself, but I can't help
 Oh, and as of today, the sign has been, uh, _adjusted_ to read that Sorocaba belongs to everyone.
 
 <table class="img-wrap standout">
-    <tr><td><img style="height: 400px" alt="Todos" src="http://www.jornalipanema.com.br/novo/images/materia/580_img-366120151120092739235.jpg" title="Todos" /></td></tr>
-    <tr><td class="img-caption">-- Source: "Ricardo Souza/Colaboração":http://www.jornalipanema.com.br/novo/images/materia/580_img-366120151120092739235.jpg</td><tr>
+    <tr><td><img style="height: 400px" alt="Todos" src="https://ipa-upload.s3-us-west-2.amazonaws.com/materia/273978/IMG_3661.JPG" title="Todos" /></td></tr>
+    <tr><td class="img-caption">-- Source: "Ricardo Souza/Colaboração":http://www.jornalipanema.com.br/noticias/sorocaba/273978/totem-religioso-no-acesso-a-castelinho-e-vandalizado-novamente</td><tr>
 </table>
 
 (Which is a much more welcoming message if you ask me).
