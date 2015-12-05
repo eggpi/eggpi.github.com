@@ -49,7 +49,7 @@ h3. Experiments
 We have a great tool for measuring Firefox's memory footprint under realistic loads called "Are We Slim Yet?":https://areweslimyet.com, which I'll refer to as AWSY for brevity. Once the necessary builds were ready, the next step was to run them through AWSY and see how they performed.
 
 <table class="img-wrap standout" style="width: 90%">
-    <tr><td ><img alt="AWSY results" src="/img/awsy-sm-partitions3.png" title="AWSY results" /></td></tr>
+    <tr><td ><img style="width: 100%" alt="AWSY results" src="/img/awsy-sm-partitions3.png" title="AWSY results" /></td></tr>
     <tr><td class="img-caption">-- Columns, left to right: jemalloc3 with partition, mozjemalloc, jemalloc3 without partition, PartitionAlloc + jemalloc3 Frankenbuild</td><tr>
 </table>
 
