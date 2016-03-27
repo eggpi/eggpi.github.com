@@ -1,7 +1,7 @@
 ---
 layout: default
 title: The curious question of who owns Sorocaba
-tags: [nontechnical]
+tags: [nontechnical, sorocaba]
 ---
 
 They say living abroad changes your perspective on things: upon returning home, having dropped a little innate cultural baggage, things you'd normally take for granted as a native suddenly stand out and acquire a quasi-foreign quality. Now, I don't believe I've been away nearly long enough for that effect to really kick in, but it may nevertheless have had something to do with this post.
