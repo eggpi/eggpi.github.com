@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section class="slide level6">
+
+<!-- pandoc -i slides.md -t revealjs -s -o slides.html -V theme:white -->
+<p><a href="https://tools.wmflabs.org/citationhunt" data-preview-link>Always start with a demo.</a></p>
+</section>
+<section class="slide level6">
+
+<p>How can I begin to edit Wikipedia?</p>
+</section>
+<section class="slide level6">
+
+<p><a href="https://en.wikipedia.org/wiki/WP:MANUAL">Manual of Style</a> is 63 pages long!</p>
+<div class="fragment">
+<p><a href="https://en.wikipedia.org/wiki/Wikipedia:Lamest_edit_wars">Fighting strangers on the Internet</a></p>
+</div>
+<div class="fragment">
+<p>What to edit?</p>
+</div>
+</section>
+<section class="slide level6">
+
+<p>Easy, uncontroversial, but still <strong>interesting</strong></p>
+<p>Citations!<sup style="font-size: medium; color: #0645AD; font-style: italic">[citation needed]</sup></p>
+</section>
+<section class="slide level6">
+
+<figure>
+<img src="img/early.png" />
+</figure>
+</section>
+<section class="slide level6">
+
+<p>Simple Python (Flask) app</p>
+<p>Parsing <a href="https://dumps.wikimedia.org/">Wikipedia dumps</a></p>
+<p>Hosted on <a href="https://heroku.com">Heroku</a></p>
+<p>Client-side search over fixed categories (<a href="https://github.com/LeaVerou/awesomplete">awesomplete</a>)</p>
+</section>
+<section class="slide level6">
+
+<p>Announced on the <a href="https://en.wikipedia.org/wiki/Wikipedia:Village_pump">Village Pump</a></p>
+<p><em>“I like the playfulness and concision of the tool. (...) Very different, new and unique”</em></p>
+<p><span style="font-size: small"><a href="https://en.wikipedia.org/wiki/Wikipedia:Village_pump_(idea_lab)/Archive_16#CitationHunt" class="uri">https://en.wikipedia.org/wiki/Wikipedia:Village_pump_(idea_lab)/Archive_16#CitationHunt</a></span></p>
+</section>
+<section class="slide level6">
+
+<p><a href="https://tools.wmflabs.org/citationhunt" class="uri">https://tools.wmflabs.org/citationhunt</a></p>
+<p>Moved to <a href="https://wikitech.wikimedia.org/wiki/Help:Tool_Labs">Tool labs</a>:</p>
+<ul>
+<li>Hosting environment for tools and bots</li>
+<li>Access to live database</li>
+<li>Borg-like grid engine</li>
+<li>Easy support for Flask tools</li>
+</ul>
+</section>
+<section class="slide level6">
+
+<p>Overnight success!</p>
+<div class="fragment">
+<p><sup style="font-size: medium; color: #0645AD; font-style: italic">[citation needed]</sup></p>
+</div>
+</section>
+<section class="slide level6">
+
+<p>#1lib1ref?</p>
+</section>
+<section class="slide level6">
+
+<p>“As part of the <strong>Wikipedia 15</strong> birthday celebration (#Wikipedia15) in January 2016, the Wikipedia Library team (<span class="citation" data-cites="WikiLibrary">@WikiLibrary</span>) ran a <strong>social media campaign</strong> asking librarians all over the world to <strong>Imagine a World where Every Librarian Added One More Reference to Wikipedia.</strong> We called it <strong>#1lib1ref.</strong>”</p>
+<p><span style="font-size: small"><a href="https://blog.wikimedia.org/2016/04/25/engaging-librarians-1lib1ref/" class="uri">https://blog.wikimedia.org/2016/04/25/engaging-librarians-1lib1ref/</a></span></p>
+</section>
+<section class="slide level6">
+
+<p>“The combination of [Citation Needed] templates and the Citation Hunt tool created a really low participation threshold. (...) Moreover, these tools <strong>facilitate a behaviour common amongst librarians: chasing information in reference materials</strong> (this is a core part of reference librarian training).”</p>
+<p><span style="font-size: small"><a href="https://meta.wikimedia.org/wiki/The_Wikipedia_Library/1Lib1Ref/Lessons" class="uri">https://meta.wikimedia.org/wiki/The_Wikipedia_Library/1Lib1Ref/Lessons</a></span></p>
+</section>
+<section class="slide level6">
+
+<p>“Did my civic duty and added some references for #1lib1ref. Also forgot how <strong>addictive</strong> Citation Hunt tool was ;)”</p>
+<p><span style="font-size: small"><a href="@marykatwahl">https://twitter.com/marykatwahl/status/825424325188608000</a></span></p>
+<div class="fragment">
+<p>“(...) It’s like a <strong>pokie machine for librarians</strong>. DING dopamine hit.”</p>
+<p><span style="font-size: small"><a href="@HughRundle">https://twitter.com/HughRundle/status/688171119610744832</a></span></p>
+</div>
+<div class="fragment">
+<p>“Finding citation hunt to be <strong>oddly soothing</strong>”</p>
+<p><span style="font-size: small"><a href="@luis_in_140">https://twitter.com/luis_in_140/status/696053379970134017</a></span></p>
+</div>
+</section>
+<section class="slide level6">
+
+<p>“We need more <strong>simple, gamified</strong> but substantive models for contributing to Wikipedia. <strong>Citation Hunt was an excellent tool for engaging librarians</strong>, and we have received feedback from librarians that the small action made the biggest difference for their participation.”</p>
+<p><span style="font-size: small"><a href="https://meta.wikimedia.org/wiki/The_Wikipedia_Library/1Lib1Ref/Lessons" class="uri">https://meta.wikimedia.org/wiki/The_Wikipedia_Library/1Lib1Ref/Lessons</a></span></p>
+</section>
+<section class="slide level6">
+
+<p>Internationalization:</p>
+<ul>
+<li class="fragment"><a href="https://translatewiki.net">translatewiki.net</a> is amazing!</li>
+<li class="fragment">French, Polish, Italian...</li>
+</ul>
+</section>
+<section class="slide level6">
+
+<p><a href="https://www.mediawiki.org/wiki/Wikimedia_Hackathon_2016">2016 Hackathon in Jerusalem</a>:</p>
+<ul>
+<li class="fragment">Hebrew (and RTL!) support</li>
+<li class="fragment"><a href="https://en.wikipedia.org/wiki/Wikipedia:WikiProject">WikiProject support</a></li>
+</ul>
+</section>
+<section class="slide level6">
+
+<p>More users:</p>
+<ul>
+<li class="fragment"><p><a href="https://wikiedu.org">WikiEdu</a></p></li>
+<li class="fragment"><p>Various editathons</p></li>
+<li class="fragment"><p>Wikipedia/Twitter/Facebook promotion</p></li>
+</ul>
+</section>
+<section class="slide level6">
+
+<figure>
+<img src="img/wikipedia_btn.png" />
+</figure>
+<p><span style="font-size: small"><a href="https://en.wikipedia.org/wiki/Wikipedia:Citation_needed" class="uri">https://en.wikipedia.org/wiki/Wikipedia:Citation_needed</a></span></p>
+<figure>
+<img src="img/wikipedia_btn2.png" />
+</figure>
+<p><span style="font-size: small"><a href="https://es.wikipedia.org/wiki/Ayuda:Cómo_referenciar" class="uri">https://es.wikipedia.org/wiki/Ayuda:Cómo_referenciar</a></span></p>
+</section>
+<section class="slide level6">
+
+<p>More features:</p>
+<ul>
+<li class="fragment"><p>Usage graphs</p></li>
+<li class="fragment"><p>Server-side category search</p></li>
+<li class="fragment"><p>New theme: Vector button style</p></li>
+<li class="fragment"><p>Spanish, Czech, Swedish...</p></li>
+</ul>
+</section>
+<section class="slide level6">
+
+<p>...but not Turkish</p>
+<div class="fragment">
+<figure>
+<img src="img/turkish.png" />
+</figure>
+<p><span style="font-size: small"><a href="https://tools.wmflabs.org/superyetkin/kaynak_avcisi.php" class="uri">https://tools.wmflabs.org/superyetkin/kaynak_avcisi.php</a></span></p>
+</div>
+<div class="fragment">
+<p>(yet!)</p>
+</div>
+</section>
+<section class="slide level6">
+
+<p>Technical review</p>
+</section>
+<section class="slide level6">
+
+<p><img class="plain" src="img/overview.svg" height="50%" /></p>
+</section>
+<section class="slide level6">
+
+<div style="font-family: monospace; font-size: medium; text-align: justify">
+<p>===Competitions===</p>
+<p>In May 2004, the websites Dark Blue and SearchGuild teamed up to create what they termed the &quot;SEO Challenge&quot; to Google bomb the phrase &quot;[[nigritude ultramarine]]&quot;.<ref>{{cite web|last=Karch|first=Marziah|title=Google Bombs Explained|url=http://google.about.com/od/socialtoolsfromgoogle/a/googlebombatcl.htm|work=About.com|accessdate=2011-03-30}}</ref></p>
+<p>In September 2004, another [[SEO contest]] was created. This time, the objective was to get the top result for the phrase &quot;[[seraphim proudleduck]]&quot;. A large sum of money was offered to the winner, but the competition turned out to be a hoax.<strong>{{Citation needed|date=March 2008}}</strong></p>
+<p>In March 2005's issue of [[.net (magazine)|''.net'' magazine]] published, a contest was created among five professional web developers to make their site the number-one site for the made-up phrase &quot;crystalline incandescence&quot;.</p>
+</div>
+<p>becomes...</p>
+<div class="fragment">
+<div style="font-family: monospace; font-size: medium; text-align: justify">
+<p>In September 2004, another SEO contest was created. This time, the objective was to get the top result for the phrase &quot;seraphim proudleduck&quot;. A large sum of money was offered to the winner, but the competition turned out to be a hoax.&lt;sup class=&quot;superscript&quot;&gt;<strong>[citation needed]</strong>&lt;/sup&gt;</p>
+</div>
+</div>
+</section>
+<section class="slide level6">
+
+<div style="font-family: monospace; font-size: medium; text-align: justify">
+<p>Google Brain was initially established by Google Fellow [[Jeff Dean (computer scientist)|Jeff Dean]] and visiting Stanford professor [[Andrew Ng]]<strong>&lt;ref name=ng-dean-blog&gt;</strong>{{cite web|author1=Jeff Dean and Andrew Ng|title=Using large-scale brain simulations for machine learning and A.I.|url=http://googleblog.blogspot.com/2012/06/using-large-scale-brain-simulations-for.html|website=Official Google Blog|accessdate=26 January 2015|date=26 June 2012}}&lt;/ref&gt; (Ng since moved to lead the artificial intelligence group at [[Baidu]]<strong>&lt;ref&gt;</strong>{{cite web|url=http://www.scmp.com/news/china/article/1519211/ex-google-brain-head-andrew-ng-lead-baidus-artificial-intelligence-drive|title=Ex-Google Brain head Andrew Ng to lead Baidu's artificial intelligence drive|publisher=[[South China Morning Post]]}}&lt;/ref&gt;). As of 2014, team members included [[Jeff Dean (computer scientist)|Jeff Dean]], [[Geoffrey Hinton]], [[Greg Corrado]], [[Quoc Le]],<strong>&lt;ref&gt;</strong>{{cite web|title=Quoc Le - Behind the Scenes|url=http://www.technologyreview.com/emtech/14/video/watch/quoc-le-behind-the-scenes/|accessdate=20 April 2015}}&lt;/ref&gt; [[Ilya Sutskever]], [[Alex Krizhevsky]], [[Samy Bengio]], and [[Vincent Vanhoucke]].<strong>{{citation needed|date=January 2015}}</strong></p>
+</div>
+<p>becomes...</p>
+<div class="fragment">
+<div style="font-family: monospace; font-size: medium; text-align: justify">
+<p>Google Brain was initially established by Google Fellow Jeff Dean and visiting Stanford professor Andrew Ng&lt;sup class=&quot;superscript&quot;&gt;<strong>[1]</strong>&lt;/sup&gt; (Ng since moved to lead the artificial intelligence group at Baidu&lt;sup class=&quot;superscript&quot;&gt;<strong>[2]</strong>&lt;/sup&gt;). As of 2014, team members included Jeff Dean, Geoffrey Hinton, Greg Corrado, Quoc Le,&lt;sup class=&quot;superscript&quot;&gt;<strong>[3]</strong>&lt;/sup&gt; Ilya Sutskever, Alex Krizhevsky, Samy Bengio, and Vincent Vanhoucke.&lt;sup class=&quot;superscript&quot;&gt;<strong>[citation needed]</strong>&lt;/sup&gt;</p>
+</div>
+</div>
+</section>
+<section class="slide level6">
+
+<p>The snippet parser</p>
+<ul>
+<li class="fragment"><p>Extract snippets or full sections</p></li>
+<li class="fragment"><p>HTML (Wikipedia API) or plain wikicode output</p></li>
+<li class="fragment"><p>Support for per-language template handling (yuck!)</p></li>
+<li class="fragment"><p>Powered by <a href="https://github.com/earwig/mwparserfromhell/">mwparserfromhell</a> and a lot of hackery</p></li>
+</ul>
+</section>
+<section class="slide level6">
+
+<p>Some English numbers:</p>
+<ul>
+<li>Typical day: 5-10 citations, ~500 snippets viewed</li>
+<li>#1lib1ref 2017: 50-70 citations/day, for 3 weeks!</li>
+<li><strong>Largest</strong> referrer: en.wikipedia.org</li>
+<li><strong>Best</strong> referrer: wikiedu.org (anecdotally)</li>
+</ul>
+<p><span style="font-size: small"><a href="https://tools.wmflabs.org/citationhunt/en/stats.html" class="uri">https://tools.wmflabs.org/citationhunt/en/stats.html</a></span></p>
+</section>
+<section class="slide level6">
+
+<p>Future direction</p>
+</section>
+<section class="slide level6">
+
+<p>The immediate stuff:</p>
+<ul>
+<li class="fragment">UX problems
+<ul>
+<li class="fragment">Category search is hard to find and use <a href="https://github.com/eggpi/citationhunt/issues/24">#24</a></li>
+<li class="fragment">Text is not clear, too idiomatic <a href="https://github.com/eggpi/citationhunt/pull/71">#71</a></li>
+</ul></li>
+<li class="fragment">More languages
+<ul>
+<li class="fragment">Better support for plurals <a href="https://github.com/eggpi/citationhunt/issues/79">#79</a></li>
+</ul></li>
+<li class="fragment">Better snippets <a href="https://github.com/eggpi/citationhunt/issues/81">#81</a></li>
+</ul>
+</section>
+<section class="slide level6">
+
+<p>Longer term:</p>
+<ul>
+<li class="fragment"><p>Prevent <a href="http://en.wikipedia.org/wiki/WP:CITOGENESIS">citogenesis</a>? Bad sources?</p></li>
+<li class="fragment">More gamification mechanics?
+<ul>
+<li class="fragment">#1lib1ref 2017: Competition between libraries</li>
+</ul></li>
+<li class="fragment"><p>Campaigns on special dates throughout the year?</p></li>
+<li class="fragment"><p>Generalize to other kinds of templates and backlog</p></li>
+</ul>
+</section>
+<section class="slide level6">
+
+<p><a href="http://citationhunt.org">citationhunt.org</a></p>
+<p><a href="https://github.com/eggpi/citationhunt">github.com/eggpi/citationhunt</a></p>
+</section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
