@@ -3,4 +3,4 @@ highlighter: pygments
 gems:
     - jekyll-textile-converter
 
-exclude: [citationhunt/google]
+exclude: [citationhunt/google/slides.md]
