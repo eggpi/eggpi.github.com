@@ -22,7 +22,7 @@ What to edit?
 
 Easy, uncontroversial, but still **interesting**
 
-Citations!<sup style="font-size: medium; color: #0645AD; font-style: italic">[citation needed]</sup>
+Citations!<sup style="font-size: medium; color: #0645AD">[<span style="font-style: italic">citation needed</span>]</sup>
 
 ---
 
@@ -63,7 +63,7 @@ Overnight success!
 
 . . .
 
-<sup style="font-size: medium; color: #0645AD; font-style: italic">[citation needed]</sup>
+<sup style="font-size: medium; color: #0645AD">[<span style="font-style: italic">citation needed</span>]</sup>
 
 ---
 
