@@ -283,7 +283,6 @@ The immediate stuff:
     - Text is not clear, too idiomatic [#71](https://github.com/eggpi/citationhunt/pull/71)
 
 - More languages
-    - Better support for plurals [#79](https://github.com/eggpi/citationhunt/issues/79)
 
 - Better snippets [#81](https://github.com/eggpi/citationhunt/issues/81)
 
@@ -302,6 +301,8 @@ Longer term:
 
 ---
 
-[citationhunt.org](http://citationhunt.org)
+[https://tools.wmflabs.org/citationhunt](https://tools.wmlabs.org/citatinohunt)
+
+[http://ggp.name/citationhunt/google/slides.html](http://ggp.name/citationhunt/google/slides.html)
 
 [github.com/eggpi/citationhunt](https://github.com/eggpi/citationhunt)
