@@ -105,7 +105,8 @@ a, p, h1, h2, h3, td, blockquote, input {
 
 #blog {
     margin: 0 5%;
-    background: url(/img/background.jpg) repeat-y 80% 0;
+    background: url(/img/background.jpg);
+    background-size: contain;
     border-width: 0px 3px 3px;
     border-color: #363333;
     border-style: solid;
