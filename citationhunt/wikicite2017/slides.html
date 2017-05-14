@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section class="slide level6">
+
+<!-- pandoc -i slides.md -t revealjs -s -o slides.html -V theme:white -->
+<p>How can I begin to edit Wikipedia?</p>
+</section>
+<section class="slide level6">
+
+<p>Easy, uncontroversial, but still <strong>interesting</strong></p>
+<p>Citations!<sup style="font-size: medium; color: #0645AD">[<span style="font-style: italic">citation needed</span>]</sup></p>
+</section>
+<section class="slide level6">
+
+<p>#1lib1ref</p>
+</section>
+<section class="slide level6">
+
+<p>“As part of the <strong>Wikipedia 15</strong> birthday celebration (#Wikipedia15) in January 2016, the Wikipedia Library team (<span class="citation" data-cites="WikiLibrary">@WikiLibrary</span>) ran a <strong>social media campaign</strong> asking librarians all over the world to <strong>Imagine a World where Every Librarian Added One More Reference to Wikipedia.</strong> We called it <strong>#1lib1ref.</strong>”</p>
+<p><span style="font-size: small"><a href="https://blog.wikimedia.org/2016/04/25/engaging-librarians-1lib1ref/" class="uri">https://blog.wikimedia.org/2016/04/25/engaging-librarians-1lib1ref/</a></span></p>
+</section>
+<section class="slide level6">
+
+<p>“The combination of [Citation Needed] templates and the Citation Hunt tool created a really low participation threshold. (...) Moreover, these tools <strong>facilitate a behaviour common amongst librarians: chasing information in reference materials</strong> (this is a core part of reference librarian training).”</p>
+<p><span style="font-size: small"><a href="https://meta.wikimedia.org/wiki/The_Wikipedia_Library/1Lib1Ref/Lessons" class="uri">https://meta.wikimedia.org/wiki/The_Wikipedia_Library/1Lib1Ref/Lessons</a></span></p>
+</section>
+<section class="slide level6">
+
+<p>“We need more <strong>simple, gamified</strong> but substantive models for contributing to Wikipedia. <strong>Citation Hunt was an excellent tool for engaging librarians</strong>, and we have received feedback from librarians that the small action made the biggest difference for their participation.”</p>
+<p><span style="font-size: small"><a href="https://meta.wikimedia.org/wiki/The_Wikipedia_Library/1Lib1Ref/Lessons" class="uri">https://meta.wikimedia.org/wiki/The_Wikipedia_Library/1Lib1Ref/Lessons</a></span></p>
+</section>
+<section class="slide level6">
+
+<p>Other users:</p>
+<ul>
+<li class="fragment"><p><a href="https://wikiedu.org">WikiEdu</a></p></li>
+<li class="fragment"><p>Various editathons</p></li>
+<li class="fragment"><p>Wikipedia links (e.g., <a href="https://en.wikipedia.org/wiki/WP:Citation_needed">WP:Citation_needed</a>)</p></li>
+</ul>
+</section>
+<section class="slide level6">
+
+<p>Some English numbers:</p>
+<ul>
+<li>Typical day: 5-10 citations, ~500 snippets viewed</li>
+<li>#1lib1ref 2017: 50-70 citations/day, for 3 weeks!</li>
+<li><strong>Largest</strong> referrer: en.wikipedia.org</li>
+<li><strong>Best</strong> referrer: wikiedu.org (anecdotally)</li>
+</ul>
+<p><span style="font-size: small"><a href="https://tools.wmflabs.org/citationhunt/en/stats.html" class="uri">https://tools.wmflabs.org/citationhunt/en/stats.html</a></span></p>
+</section>
+<section class="slide level6">
+
+<p>Technical review</p>
+</section>
+<section class="slide level6">
+
+<p><img class="plain" src="img/overview.svg" height="50%" /></p>
+</section>
+<section class="slide level6">
+
+<p>The snippet parser</p>
+<ul>
+<li class="fragment"><p>Extract snippets or full sections</p></li>
+<li class="fragment"><p>HTML (Wikipedia API) output, annotated with custom CSS classes</p></li>
+<li class="fragment"><p>Powered by <a href="https://github.com/earwig/mwparserfromhell/">mwparserfromhell</a> and a lot of hackery</p></li>
+</ul>
+</section>
+<section class="slide level6">
+
+<p>Future direction</p>
+</section>
+<section class="slide level6">
+
+<p>The immediate stuff:</p>
+<ul>
+<li class="fragment"><p>More languages</p></li>
+<li class="fragment"><p>Improve detection of fixed snippets <a href="https://github.com/eggpi/citationhunt/issues/70">#70</a></p></li>
+<li class="fragment"><p>UI glitches (<a href="https://github.com/eggpi/citationhunt/issues/73">#73</a>)</p></li>
+</ul>
+</section>
+<section class="slide level6">
+
+<p>Longer term:</p>
+<ul>
+<li class="fragment"><p>Prevent <a href="http://en.wikipedia.org/wiki/WP:CITOGENESIS">citogenesis</a>? Bad sources?</p></li>
+<li class="fragment">More gamification mechanics?
+<ul>
+<li class="fragment">#1lib1ref 2017: Competition between libraries</li>
+</ul></li>
+<li class="fragment"><p>Campaigns on special dates throughout the year?</p></li>
+<li class="fragment"><p>Generalize to other kinds of templates and backlog</p></li>
+</ul>
+</section>
+<section class="slide level6">
+
+<p><a href="https://tools.wmlabs.org/citatinohunt">https://tools.wmflabs.org/citationhunt</a></p>
+<p><a href="http://ggp.name/citationhunt/google/slides.html">http://ggp.name/citationhunt/wikicite2017/slides.html</a></p>
+<p><a href="https://github.com/eggpi/citationhunt">github.com/eggpi/citationhunt</a></p>
+</section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
