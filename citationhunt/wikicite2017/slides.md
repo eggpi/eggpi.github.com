@@ -23,15 +23,6 @@ One More Reference to Wikipedia.** We called it **#1lib1ref.**”
 
 ---
 
-“The combination of [Citation Needed] templates and the Citation Hunt tool
-created a really low participation threshold. (...) Moreover, these tools
-**facilitate a behaviour common amongst librarians: chasing information in
-reference materials** (this is a core part of reference librarian training).”
-
-<span style="font-size: small">[https://meta.wikimedia.org/wiki/The_Wikipedia_Library/1Lib1Ref/Lessons](https://meta.wikimedia.org/wiki/The_Wikipedia_Library/1Lib1Ref/Lessons)</span>
-
----
-
 “We need more **simple, gamified** but substantive models for contributing to
 Wikipedia. **Citation Hunt was an excellent tool for engaging librarians**, and
 we have received feedback from librarians that the small action made the biggest
@@ -74,10 +65,20 @@ The snippet parser
 
 - Extract snippets or full sections
 
-- HTML (Wikipedia API) output, annotated with custom CSS classes
+- HTML output, annotated with custom CSS classes
 
 - Powered by [mwparserfromhell](https://github.com/earwig/mwparserfromhell/) and
   a lot of hackery
+
+---
+
+Other (reusable?) goodies:
+
+- Lightweight MediaWiki API library
+    - POST for large requests
+    - Persistent connection support
+
+- Client-side autocomplete based on [Awesomplete](https://github.com/LeaVerou/awesomplete)
 
 ---
 
@@ -89,7 +90,7 @@ The immediate stuff:
 
 - More languages
 
-- Improve detection of fixed snippets [#70](https://github.com/eggpi/citationhunt/issues/70)
+- Improve detection of fixed snippets ([#70](https://github.com/eggpi/citationhunt/issues/70))
 
 - UI glitches ([#73](https://github.com/eggpi/citationhunt/issues/73))
 
@@ -97,19 +98,16 @@ The immediate stuff:
 
 Longer term:
 
-- Prevent [citogenesis](http://en.wikipedia.org/wiki/WP:CITOGENESIS)? Bad sources?
-
-- More gamification mechanics?
-    - \#1lib1ref 2017: Competition between libraries
+- Generalize to other kinds of templates and backlog
 
 - Campaigns on special dates throughout the year?
 
-- Generalize to other kinds of templates and backlog
+- Identify and mitigate common editing mistakes
 
 ---
 
-[https://tools.wmflabs.org/citationhunt](https://tools.wmlabs.org/citatinohunt)
+[tools.wmflabs.org/citationhunt](https://tools.wmlabs.org/citationhunt)
 
-[http://ggp.name/citationhunt/wikicite2017/slides.html](http://ggp.name/citationhunt/google/slides.html)
+[ggp.name/citationhunt/wikicite2017/slides.html](http://ggp.name/citationhunt/google/slides.html)
 
 [github.com/eggpi/citationhunt](https://github.com/eggpi/citationhunt)
