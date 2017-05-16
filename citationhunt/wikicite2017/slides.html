@@ -30,21 +30,11 @@
 <section class="slide level6">
 
 <!-- pandoc -i slides.md -t revealjs -s -o slides.html -V theme:white -->
-<p>How can I begin to edit Wikipedia?</p>
-</section>
-<section class="slide level6">
-
-<p>Easy, uncontroversial, but still <strong>interesting</strong></p>
-<p>Citations!<sup style="font-size: medium; color: #0645AD">[<span style="font-style: italic">citation needed</span>]</sup></p>
+<p><a href="https://tools.wmflabs.org/citationhunt" data-preview-link>Always start with a demo.</a></p>
 </section>
 <section class="slide level6">
 
 <p>#1lib1ref</p>
-</section>
-<section class="slide level6">
-
-<p>“As part of the <strong>Wikipedia 15</strong> birthday celebration (#Wikipedia15) in January 2016, the Wikipedia Library team (<span class="citation" data-cites="WikiLibrary">@WikiLibrary</span>) ran a <strong>social media campaign</strong> asking librarians all over the world to <strong>Imagine a World where Every Librarian Added One More Reference to Wikipedia.</strong> We called it <strong>#1lib1ref.</strong>”</p>
-<p><span style="font-size: small"><a href="https://blog.wikimedia.org/2016/04/25/engaging-librarians-1lib1ref/" class="uri">https://blog.wikimedia.org/2016/04/25/engaging-librarians-1lib1ref/</a></span></p>
 </section>
 <section class="slide level6">
 
@@ -53,39 +43,23 @@
 </section>
 <section class="slide level6">
 
-<p>Other users:</p>
-<ul>
-<li class="fragment"><p><a href="https://wikiedu.org">WikiEdu</a></p></li>
-<li class="fragment"><p>Various editathons</p></li>
-<li class="fragment"><p>Wikipedia links (e.g., <a href="https://en.wikipedia.org/wiki/WP:Citation_needed">WP:Citation_needed</a>)</p></li>
-</ul>
-</section>
-<section class="slide level6">
-
 <p>Some English numbers:</p>
 <ul>
 <li>Typical day: 5-10 citations, ~500 snippets viewed</li>
 <li>#1lib1ref 2017: 50-70 citations/day, for 3 weeks!</li>
-<li><strong>Largest</strong> referrer: en.wikipedia.org</li>
-<li><strong>Best</strong> referrer: wikiedu.org (anecdotally)</li>
 </ul>
 <p><span style="font-size: small"><a href="https://tools.wmflabs.org/citationhunt/en/stats.html" class="uri">https://tools.wmflabs.org/citationhunt/en/stats.html</a></span></p>
 </section>
 <section class="slide level6">
 
-<p>Technical review</p>
+<p>Technical aspects</p>
 </section>
 <section class="slide level6">
 
-<p><img class="plain" src="img/overview.svg" height="50%" /></p>
-</section>
-<section class="slide level6">
-
-<p>The snippet parser</p>
+<p>Data extraction:</p>
 <ul>
-<li class="fragment"><p>Extract snippets or full sections</p></li>
+<li class="fragment"><p>Snippets or full sections marked with a template</p></li>
 <li class="fragment"><p>HTML output, annotated with custom CSS classes</p></li>
-<li class="fragment"><p>Powered by <a href="https://github.com/earwig/mwparserfromhell/">mwparserfromhell</a> and a lot of hackery</p></li>
 </ul>
 </section>
 <section class="slide level6">
@@ -106,20 +80,11 @@
 </section>
 <section class="slide level6">
 
-<p>The immediate stuff:</p>
 <ul>
 <li class="fragment"><p>More languages</p></li>
 <li class="fragment"><p>Improve detection of fixed snippets (<a href="https://github.com/eggpi/citationhunt/issues/70">#70</a>)</p></li>
 <li class="fragment"><p>UI glitches (<a href="https://github.com/eggpi/citationhunt/issues/73">#73</a>)</p></li>
-</ul>
-</section>
-<section class="slide level6">
-
-<p>Longer term:</p>
-<ul>
 <li class="fragment"><p>Generalize to other kinds of templates and backlog</p></li>
-<li class="fragment"><p>Campaigns on special dates throughout the year?</p></li>
-<li class="fragment"><p>Identify and mitigate common editing mistakes</p></li>
 </ul>
 </section>
 <section class="slide level6">

@@ -1,25 +1,10 @@
 <!-- pandoc -i slides.md -t revealjs -s -o slides.html -V theme:white --!>
 
-How can I begin to edit Wikipedia?
-
----
-
-Easy, uncontroversial, but still **interesting**
-
-Citations!<sup style="font-size: medium; color: #0645AD">[<span style="font-style: italic">citation needed</span>]</sup>
+<a href="https://tools.wmflabs.org/citationhunt" data-preview-link>Always start with a demo.</a>
 
 ---
 
 \#1lib1ref
-
----
-
-“As part of the **Wikipedia 15** birthday celebration (#Wikipedia15) in January 2016,
-the Wikipedia Library team (@WikiLibrary) ran a **social media campaign** asking
-librarians all over the world to **Imagine a World where Every Librarian Added
-One More Reference to Wikipedia.** We called it **#1lib1ref.**”
-
-<span style="font-size: small">[https://blog.wikimedia.org/2016/04/25/engaging-librarians-1lib1ref/](https://blog.wikimedia.org/2016/04/25/engaging-librarians-1lib1ref/)</span>
 
 ---
 
@@ -32,43 +17,24 @@ difference for their participation.”
 
 ---
 
-Other users:
-
-- [WikiEdu](https://wikiedu.org)
-
-- Various editathons
-
-- Wikipedia links (e.g., [WP:Citation_needed](https://en.wikipedia.org/wiki/WP:Citation_needed))
-
----
-
 Some English numbers:
 
 > - Typical day: 5-10 citations, ~500 snippets viewed
 > - \#1lib1ref 2017: 50-70 citations/day, for 3 weeks!
-> - **Largest** referrer: en.wikipedia.org
-> - **Best** referrer: wikiedu.org (anecdotally)
 
 <span style="font-size: small">[https://tools.wmflabs.org/citationhunt/en/stats.html](https://tools.wmflabs.org/citationhunt/en/stats.html)</span>
 
 ---
 
-Technical review
+Technical aspects
 
 ---
 
-<img class="plain" src="img/overview.svg" height="50%" />
+Data extraction:
 
----
-
-The snippet parser
-
-- Extract snippets or full sections
+- Snippets or full sections marked with a template
 
 - HTML output, annotated with custom CSS classes
-
-- Powered by [mwparserfromhell](https://github.com/earwig/mwparserfromhell/) and
-  a lot of hackery
 
 ---
 
@@ -86,23 +52,13 @@ Future direction
 
 ---
 
-The immediate stuff:
-
 - More languages
 
 - Improve detection of fixed snippets ([#70](https://github.com/eggpi/citationhunt/issues/70))
 
 - UI glitches ([#73](https://github.com/eggpi/citationhunt/issues/73))
 
----
-
-Longer term:
-
 - Generalize to other kinds of templates and backlog
-
-- Campaigns on special dates throughout the year?
-
-- Identify and mitigate common editing mistakes
 
 ---
 
