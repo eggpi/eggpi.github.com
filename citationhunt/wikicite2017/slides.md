@@ -19,14 +19,14 @@ difference for their participation.”
 
 Some English numbers:
 
-> - Typical day: 5-10 citations, ~500 snippets viewed
-> - \#1lib1ref 2017: 50-70 citations/day, for 3 weeks!
+- Typical day: 5-10 citations, ~500 snippets viewed
+- \#1lib1ref 2017: 50-70 citations/day, for 3 weeks!
 
 <span style="font-size: small">[https://tools.wmflabs.org/citationhunt/en/stats.html](https://tools.wmflabs.org/citationhunt/en/stats.html)</span>
 
 ---
 
-Technical aspects
+Technical notes
 
 ---
 
