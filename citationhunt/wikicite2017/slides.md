@@ -32,7 +32,9 @@ Technical notes
 
 Data extraction:
 
-- Snippets or full sections marked with a template
+- Batch jobs written in Python
+
+- Extract snippets or full sections marked with a template
 
 - HTML output, annotated with custom CSS classes
 
