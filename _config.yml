@@ -9,3 +9,5 @@ exclude: [
     citationhunt/wikicite2017/slides.md,
     citationhunt/wikicite2017/reveal.js/css/theme/README.md,
 ]
+
+markdown: kramdown
