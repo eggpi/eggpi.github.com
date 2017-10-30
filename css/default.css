@@ -19,7 +19,7 @@ a:visited {
     color: #878787;
 }
 
-a, p, h1, h2, h3, td, blockquote, input {
+a, p, h1, h2, h3, td, blockquote, input, li {
     font-size: 14px;
     font-family: Merriweather,Georgia,serif;
 }
@@ -141,6 +141,10 @@ a, p, h1, h2, h3, td, blockquote, input {
 #content-top h2 {
     font-size: 12px;
     color: #363333;
+}
+
+#content ol, ul {
+    margin-left: 5%;
 }
 
 #content h3 {
