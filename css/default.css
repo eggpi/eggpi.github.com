@@ -54,17 +54,7 @@ a, p, h1, h2, h3, td, blockquote, input, li {
     background-color: #363333;
     padding-left: 30px;
     padding-top: 2px;
-}
-
-#topbar ol li {
-    display: inline;
-    padding: 0px 10px;
-}
-
-#topbar ol li a {
-    color: #f8f8f8;
-    font-weight: bold;
-    text-decoration: none;
+    height: 10px;
 }
 
 #sidebar {
