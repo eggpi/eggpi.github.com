@@ -66,4 +66,5 @@ A little checklist for preparing for a week-long trip or so.
     <li><label><input type="checkbox">take out the trash</label></li>
     <li><label><input type="checkbox">do the dishes</label></li>
     <li><label><input type="checkbox">turn off the immersion</label></li>
+    <li><label><input type="checkbox">turn off the heating</label></li>
 </ul>
