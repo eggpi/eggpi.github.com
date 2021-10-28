@@ -69,3 +69,11 @@ A little checklist for preparing for a week-long trip or so.
     <li><label><input type="checkbox">turn off the immersion</label></li>
     <li><label><input type="checkbox">turn off the heating</label></li>
 </ul>
+
+### The cat
+
+<ul style="list-style-type: none">
+    <li><label><input type="checkbox">set up the feeder</label></li>
+    <li><label><input type="checkbox">clean the litter box</label></li>
+    <li><label><input type="checkbox">take out the timed socket for the litter box</label></li>
+</ul>
