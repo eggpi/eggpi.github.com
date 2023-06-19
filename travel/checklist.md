@@ -59,6 +59,7 @@ A little checklist for preparing for a week-long trip or so.
     <li><label><input type="checkbox">download/screenshot instructions airport -> hostel</label></li>
     <li><label><input type="checkbox">book taxi to the airport</label></li>
     <li><label><input type="checkbox">top up phone</label></li>
+    <li><label><input type="checkbox">switch phone payments to use Revolut by default</label></li>
 </ul>
 
 ### The apartment
@@ -77,12 +78,4 @@ A little checklist for preparing for a week-long trip or so.
     <li><label><input type="checkbox">set up the feeder</label></li>
     <li><label><input type="checkbox">clean the litter box</label></li>
     <li><label><input type="checkbox">take out the timed socket for the litter box</label></li>
-</ul>
-
-### The plague
-
-<ul style="list-style-type: none">
-    <li><label><input type="checkbox">printed PCR test results</label></li>
-    <li><label><input type="checkbox">passenger locator form</label></li>
-    <li><label><input type="checkbox">face mask</label></li>
 </ul>
