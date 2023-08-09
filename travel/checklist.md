@@ -71,6 +71,14 @@ A little checklist for preparing for a week-long trip or so.
     <li><label><input type="checkbox">turn off the heating</label></li>
 </ul>
 
+### The stay-in cat sitter
+
+<ul style="list-style-type: none">
+    <li><label><input type="checkbox">deliver the keys</label></li>
+    <li><label><input type="checkbox">change the bedsheets</label></li>
+    <li><label><input type="checkbox">clean the bathroom</label></li>
+</ul>
+
 ### The cat
 
 <ul style="list-style-type: none">
