@@ -48,6 +48,7 @@ A little checklist for preparing for a week-long trip or so.
     <li><label><input type="checkbox">laptop</label></li>
     <li><label><input type="checkbox">water bottle</label></li>
     <li><label><input type="checkbox">badge?</label></li>
+    <li><label><input type="checkbox">day backpack</label></li>
 </ul>
 
 ### Preparation
