@@ -71,6 +71,7 @@ A little checklist for preparing for a week-long trip or so.
     <li><label><input type="checkbox">do the dishes</label></li>
     <li><label><input type="checkbox">turn off the immersion</label></li>
     <li><label><input type="checkbox">turn off the heating</label></li>
+    <li><label><input type="checkbox">unplug the soundbar</label></li>
 </ul>
 
 ### The stay-in cat sitter
@@ -85,7 +86,5 @@ A little checklist for preparing for a week-long trip or so.
 
 <ul style="list-style-type: none">
     <li><label><input type="checkbox">update the profile on the cat sitter website</label></li>
-    <li><label><input type="checkbox">set up the feeder</label></li>
     <li><label><input type="checkbox">clean the litter box</label></li>
-    <li><label><input type="checkbox">take out the timed socket for the litter box</label></li>
 </ul>
