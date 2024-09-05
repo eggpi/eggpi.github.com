@@ -54,6 +54,7 @@ A little checklist for preparing for a week-long trip or so.
 ### Preparation
 
 <ul style="list-style-type: none">
+    <li><label><input type="checkbox">buy an eSIM</label></li>
     <li><label><input type="checkbox">check-in to flight and download boarding pass</label></li>
     <li><label><input type="checkbox">verify whether visa check is needed</label></li>
     <li><label><input type="checkbox">save the area as an offline map</label></li>
