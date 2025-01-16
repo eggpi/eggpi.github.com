@@ -1,7 +1,7 @@
 ---
 layout: nil
 title: Travel checklist
-date: 2017-02-10
+date: 2025-01-16
 ---
 
 ## Travel checklist
@@ -26,27 +26,42 @@ A little checklist for preparing for a week-long trip or so.
     <li><label><input type="checkbox">pajamas</label></li>
 </ul>
 
-### Stuff
-
+### Documents
 <ul style="list-style-type: none">
     <li><label><input type="checkbox">passport</label></li>
     <li><label><input type="checkbox">wallet</label></li>
     <li><label><input type="checkbox">phone</label></li>
     <li><label><input type="checkbox">cash</label></li>
+</ul>
+
+### Electronics
+<ul style="list-style-type: none">
+    <li><label><input type="checkbox">laptop</label></li>
     <li><label><input type="checkbox">phone charger</label></li>
     <li><label><input type="checkbox">power plug adapter</label></li>
     <li><label><input type="checkbox">earphones</label></li>
+</ul>
+
+### Toiletries
+<ul style="list-style-type: none">
     <li><label><input type="checkbox">< 100ml deodorant</label></li>
     <li><label><input type="checkbox">< 100ml shampoo</label></li>
     <li><label><input type="checkbox">nail clipper</label></li>
     <li><label><input type="checkbox">tweezers</label></li>
     <li><label><input type="checkbox">soap</label></li>
     <li><label><input type="checkbox">toothbrush</label></li>
-    <li><label><input type="checkbox">umbrella</label></li>
-    <li><label><input type="checkbox">snack</label></li>
-    <li><label><input type="checkbox">books</label></li>
-    <li><label><input type="checkbox">laptop</label></li>
+</ul>
+
+### Sustenance
+<ul style="list-style-type: none">
     <li><label><input type="checkbox">water bottle</label></li>
+    <li><label><input type="checkbox">snacks</label></li>
+    <li><label><input type="checkbox">spices</label></li>
+</ul>
+
+### Practical
+<ul style="list-style-type: none">
+    <li><label><input type="checkbox">books/ebook reader</label></li>
     <li><label><input type="checkbox">day backpack</label></li>
     <li><label><input type="checkbox">badge?</label></li>
 </ul>
