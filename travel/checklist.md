@@ -92,7 +92,6 @@ A little checklist for preparing for a week-long trip or so.
 <ul>
     <li><label><input type="checkbox">books/ebook reader</label></li>
     <li><label><input type="checkbox">day backpack</label></li>
-    <li><label><input type="checkbox">badge?</label></li>
 </ul>
 
 ## Preparation
@@ -102,11 +101,9 @@ A little checklist for preparing for a week-long trip or so.
     <li><label><input type="checkbox">check-in to flight and download boarding pass</label></li>
     <li><label><input type="checkbox">verify whether visa check is needed</label></li>
     <li><label><input type="checkbox">save the area as an offline map</label></li>
-    <li><label><input type="checkbox">download hostel confirmation</label></li>
-    <li><label><input type="checkbox">download/screenshot instructions airport -> hostel</label></li>
+    <li><label><input type="checkbox">download accommodation confirmation</label></li>
+    <li><label><input type="checkbox">download/screenshot instructios airport -> accommodation</label></li>
     <li><label><input type="checkbox">book taxi to the airport</label></li>
-    <li><label><input type="checkbox">top up phone</label></li>
-    <li><label><input type="checkbox">switch phone payments to use Revolut by default</label></li>
 </ul>
 
 ## The Apartment
