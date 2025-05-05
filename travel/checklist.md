@@ -24,12 +24,12 @@ date: 2025-01-16
     }
 
     input[type="checkbox"] {
-        transform: scale(1.75);
-        margin-right: 1em;
+        transform: scale(1.5);
+        margin-right: 3em;
     }
 
     li {
-        margin: 0.3em 0;
+        margin: 1em 0;
     }
 </style>
 
