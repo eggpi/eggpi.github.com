@@ -88,10 +88,11 @@ A little checklist for preparing for a week-long trip or so.
     <li><label><input type="checkbox">spices</label></li>
 </ul>
 
-## Practical
+## Entertainment
 <ul>
-    <li><label><input type="checkbox">books/ebook reader</label></li>
     <li><label><input type="checkbox">day backpack</label></li>
+    <li><label><input type="checkbox">books/ebook reader</label></li>
+    <li><label><input type="checkbox">binoculars</label></li>
 </ul>
 
 ## Getting Around
