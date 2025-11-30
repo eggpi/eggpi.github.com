@@ -57,9 +57,9 @@ A little checklist for preparing for a week-long trip or so.
 ## Documents
 <ul>
     <li><label><input type="checkbox">passport</label></li>
-    <li><label><input type="checkbox">wallet</label></li>
     <li><label><input type="checkbox">phone</label></li>
     <li><label><input type="checkbox">cash</label></li>
+    <li><label><input type="checkbox">debit card</label></li>
 </ul>
 
 ## Electronics
@@ -93,6 +93,8 @@ A little checklist for preparing for a week-long trip or so.
     <li><label><input type="checkbox">day backpack</label></li>
     <li><label><input type="checkbox">books/ebook reader</label></li>
     <li><label><input type="checkbox">binoculars</label></li>
+    <li><label><input type="checkbox">HDMI cable</label></li>
+    <li><label><input type="checkbox">USB-C hub</label></li>
 </ul>
 
 ## Getting Around
