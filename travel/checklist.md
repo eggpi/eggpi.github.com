@@ -86,7 +86,6 @@ A little checklist for preparing for a week-long trip or so.
     <li><label><input type="checkbox">water bottle</label></li>
     <li><label><input type="checkbox">snacks</label></li>
     <li><label><input type="checkbox">spices</label></li>
-</ul>
     <li><label><input type="checkbox">olive oil</label></li>
 </ul>
 
