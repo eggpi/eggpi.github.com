@@ -51,6 +51,7 @@ A little checklist for preparing for a week-long trip or so.
     <li><label><input type="checkbox">belt</label></li>
     <li><label><input type="checkbox">shorts</label></li>
     <li><label><input type="checkbox">laundry bag</label></li>
+    <li><label><input type="checkbox">laundry sheets / pod</label></li>
     <li><label><input type="checkbox">pajamas</label></li>
 </ul>
 
