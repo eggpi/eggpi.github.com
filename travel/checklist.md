@@ -97,6 +97,7 @@ A little checklist for preparing for a week-long trip or so.
     <li><label><input type="checkbox">binoculars</label></li>
     <li><label><input type="checkbox">HDMI cable</label></li>
     <li><label><input type="checkbox">USB-C hub</label></li>
+    <li><label><input type="checkbox">External hard drive</label></li>
 </ul>
 
 ## Getting Around
